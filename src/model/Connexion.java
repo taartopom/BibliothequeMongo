@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package model;
-    
+
+import com.mongodb.DB;
+import com.mongodb.MongoClient;
+
 /**
  *
  * @author Administrateur

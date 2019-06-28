@@ -5,10 +5,16 @@
  */
 package model;
 
+import java.util.List;
+
 /**
  *
  * @author Administrateur
  */
 public interface PaysInterface {
-    
+	public void addPays(Pays pays); 
+	public void deletePays(Pays pays);
+	public void updatePays(Pays pays); 
+	public Pays getOnePays(int idPays);
+	public List<Pays> getAllPays();
 }

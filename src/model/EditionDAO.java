@@ -33,7 +33,7 @@ public class EditionDAO implements EditionInterface {
     /*
      * Attibut de class
      * private int idEdition;
-    private String nomLibelle;
+     * private String nomLibelle;
     
 /*-----------------------------------------------------------------------------------*/  
   	//selection d'une liste d'edition 

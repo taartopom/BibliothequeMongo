@@ -18,23 +18,19 @@ import java.util.List;
  * @author Administrateur
  */
 public class PaysDAO implements PaysInterface {
+	   private DB db;
+	   private DBCollection collectionPays;
 /*-----------------------------------------------------------------------------------*/
     // Connexion
 /*-----------------------------------------------------------------------------------*/
-   private DB db;
-   private DBCollection collectionPays;
-/*-----------------------------------------------------------------------------------*/
-    // Constructeur
-/*-----------------------------------------------------------------------------------*/  
-   
-    public PaysDAO() {
-        // connexion a la DB
-        this.db = Connexion.getConnexion();
-        
-        //connexion a la collection Pays
-        this.collectionPays = this.db.getCollection("Pays");
-    }
-    
+	   	public PaysDAO() {
+	        // connexion a la DB
+	        this.db = Connexion.getConnexion();
+	        
+	        //connexion a la collection Pays
+	        this.collectionPays = this.db.getCollection("Pays");
+	    }
+  
 /*-----------------------------------------------------------------------------------*/
     // methode du CRUD
 /*-----------------------------------------------------------------------------------*/

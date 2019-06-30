@@ -34,6 +34,11 @@ public class Auteur {
         this.dateNaissanceAuteur = dateNaissanceAuteur;
         this.paysAuteur = paysAuteur;
     }
+    
+
+public Auteur() {
+		paysAuteur = new Pays();
+	}
 
 /*-----------------------------------------------------------------------------*/ 
     //Getter

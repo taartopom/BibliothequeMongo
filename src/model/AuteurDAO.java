@@ -9,8 +9,7 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 
-import modele.Categorie;
-import modele.Produit;
+
 
 public class AuteurDAO implements AuteurInterface {
 	

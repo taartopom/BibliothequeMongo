@@ -27,7 +27,7 @@ public class Auteur {
         this.dateNaissanceAuteur = dateNaissanceAuteur;
     }
 
-    public Auteur(int idAuteur, String nomAuteur, String prenomAuteur, String dateNaissanceAuteur, Pays pays) {
+    public Auteur(int idAuteur, String nomAuteur, String prenomAuteur, String dateNaissanceAuteur,Pays paysAuteur) {
         this.idAuteur = idAuteur;
         this.nomAuteur = nomAuteur;
         this.prenomAuteur = prenomAuteur;

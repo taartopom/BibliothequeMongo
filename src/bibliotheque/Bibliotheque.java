@@ -6,6 +6,8 @@
 package bibliotheque;
 
 import java.util.List;
+import model.Auteur;
+import model.AuteurDAO;
 import model.Connexion;
 import model.Edition;
 import model.EditionDAO;
@@ -152,8 +154,42 @@ public class Bibliotheque {
            
 /*----------------------------------------------------------------------*/ 
     //pour selectionner un seul inscrit
-        InscritDAO insDAO = new InscritDAO();
-        System.out.println(insDAO.getOneInscrit(2));
-    }
+        //InscritDAO insDAO = new InscritDAO();
+        //System.out.println(insDAO.getOneInscrit(2));
+        
+/*----------------------------------------------------------------------*/
+    //Auteur
+/*----------------------------------------------------------------------*/
+    // pour ajouter un auteur
+    //Pays pays = new Pays(1,"France");
+    //Auteur auteurNew = new Auteur(2, "Abel", "Barbara", "01/10/2006",pays);
+    //Auteur auteur = new Auteur(5, "Cool", "Zep", "28/11/1986", new Pays(4, "Espagne"));
+    //Auteur auteur = new Auteur(0, "bref", "Zep", "28/11/1986", new Pays(0, "France"));
+    //Auteur auteur = new Auteur(1, "a", "modifier", "28/11/1986", new Pays(0, "France"));
+     //Auteur auteur = new Auteur(4, "a", "supprimer", "28/11/1986", new Pays(0, "France"));
+    //AuteurDAO auteurDAO = new AuteurDAO();
+    
+    //auteurDAO.addAuteur(auteur);
+    
+    /*----------------------------------------------------------------------*/
+    // pour modifier un auteur
+        //Auteur auteur = new Auteur(1, "jack", "pot", "30/07/1694", new Pays(2, "Allemangne"));
+        //AuteurDAO auDAO = new AuteurDAO();
+        
+        //auDAO.updateAuteur(auteur);
+        
+/*----------------------------------------------------------------------*/
+    // pour supprimer un auteur
+        //Auteur auteur = new Auteur(4, "a", "supprimer", "28/11/1986", new Pays(0, "France"));
+        //AuteurDAO auDAO =  new AuteurDAO();
+        
+        //auDAO.deleteAuteur(auteur);
+/*----------------------------------------------------------------------*/
+    // pour selectionner un auteur
+        AuteurDAO auDAO = new AuteurDAO();
+        System.out.println(auDAO.getOneAuteur(2)); 
+        
+    
+    }   
     
 }

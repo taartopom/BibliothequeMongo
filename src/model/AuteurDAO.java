@@ -38,19 +38,24 @@ public class AuteurDAO implements AuteurInterface {
 	 *private Pays paysAuteur;*/
    	
 /*-----------------------------------------------------------------------------------*/
-	//pour ajouter un auteur a la bdd
+    //pour ajouter un auteur a la bdd
 @Override
     public void addAuteur(Auteur auteur) {
 
         BasicDBObject docAuteur = new BasicDBObject();
+        
         docAuteur.append("_id", auteur.getIdAuteur())
             .append("nomAuteur", auteur.getNomAuteur())
             .append("prenomAuteur", auteur.getPrenomAuteur())
             .append("dateNaissanceAuteur", auteur.getDateNaissanceAuteur())
-            .append("idPaysAuteur",new BasicDBObject(
+        
+       // System.out.println(auteur);
+            .append("idPaysAuteur", new BasicDBObject(
                 "_id",auteur.getPaysAuteur().getIdPays())
                 .append("nomPays",auteur.getPaysAuteur().getNomPays()));
-        this.collectionAuteur.insert(docAuteur);
+        
+        
+       this.collectionAuteur.insert(docAuteur);
 		
 	}
 
@@ -117,26 +122,26 @@ public class AuteurDAO implements AuteurInterface {
 /*-----------------------------------------------------------------------------------*/
 	// pour la selection d'un seul auteur
 @Override
-	public Auteur getOneAuteur(int idAuteur) {
-		BasicDBObject id = new BasicDBObject("_id", idAuteur);
-		
-		DBObject obj = this.collectionAuteur.findOne(id);
-		
-		Auteur auteur = new Auteur();
-		 auteur.setIdAuteur((int)obj.get("_id"));
-	        auteur.setNomAuteur(obj.get("nomAuteur").toString());
-	        auteur.setPrenomAuteur(obj.get("prenomAuteur").toString());
-	        auteur.setDateNaissanceAuteur(obj.get("dateNaissanceAuteur").toString());
-	        
-	        /*Creation d'un document pour recupere le pays dans le document auteur */
-	        DBObject objPays = (DBObject)obj.get("idPays");
-	       
-	        /*maj du pays dans l'objet auteur*/
-	        auteur.setPaysAuteur(new Pays((int)objPays.get("_id"),
-	                objPays.get("nomPays").toString())
-                );
-		
-		return auteur;
+    public Auteur getOneAuteur(int idAuteur) {
+        BasicDBObject id = new BasicDBObject("_id", idAuteur);
+
+        DBObject obj = this.collectionAuteur.findOne(id);
+
+        Auteur auteur = new Auteur();
+         auteur.setIdAuteur((int)obj.get("_id"));
+        auteur.setNomAuteur(obj.get("nomAuteur").toString());
+        auteur.setPrenomAuteur(obj.get("prenomAuteur").toString());
+        auteur.setDateNaissanceAuteur(obj.get("dateNaissanceAuteur").toString());
+
+        /*Creation d'un document pour recupere le pays dans le document auteur */
+        DBObject objPays = (DBObject)obj.get("idPays");
+
+        /*maj du pays dans l'objet auteur*/
+        auteur.setPaysAuteur(new Pays((int)objPays.get("_id"),
+                objPays.get("nomPays").toString())
+        );
+
+        return auteur;
 	}
   
 

@@ -103,7 +103,8 @@ public class InscritDAO implements InscritInterface{
    	//pour recuperer tous les inscrits
 @Override
 	public List<Inscrit> getAllInscrit() {
-		List<Inscrit> listeInscrit = new ArrayList<>();
+            
+            List<Inscrit> listeInscrit = new ArrayList<>();
 	    DBCursor cursor = this.collectionInscrit.find();    
 	    while(cursor.hasNext()){
 	        DBObject obj = cursor.next();

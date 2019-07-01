@@ -8,7 +8,9 @@ package model;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -103,17 +105,43 @@ public class ExemplaireDAO implements ExemplaireInterface{
         
         //recuperation du livre de l'exemplaire choisi
         DBObject objLivre = (DBObject)obj.get("idLivre");
-      //  exemplaire.setIdLivreExemplaire(new Livre(idExemplaire, titreLivre, anneeLivre, resumeLivre, typelivre));
+        exemplaire.setIdLivreExemplaire(new Livre(
+                (int)objLivre.get("_id"),
+                objLivre.get("titreLivre").toString()
+        ));
         
         
-        return null;
+        return exemplaire;
     }
 
 /*-----------------------------------------------------------------------------------*/
     //pour recuperer une liste d'emplaire
 @Override
     public List<Exemplaire> getAllExemplaire() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        List<Exemplaire> listeExemplaire = new ArrayList<>();
+        
+        DBCursor cursor = this.collectionExemplaire.find();
+        
+        while(cursor.hasNext()){
+            DBObject obj = cursor.next();
+            Exemplaire exemplaire = new Exemplaire();
+            exemplaire.setRefExemplaire(obj.get("_id").toString());
+
+            //recuperation de l'edition de l'exemplaire choisi
+            DBObject objEdition = (DBObject)obj.get("idEdition");
+            exemplaire.setIdEditionExemplaire(new Edition((int)objEdition.get("_id"),
+                    objEdition.get("nomEdition").toString()));
+
+            //recuperation du livre de l'exemplaire choisi
+            DBObject objLivre = (DBObject)obj.get("idLivre");
+            exemplaire.setIdLivreExemplaire(new Livre(
+                    (int)objLivre.get("_id"),
+                    objLivre.get("titreLivre").toString()));
+            //ajout des exemplaire a la liste
+            listeExemplaire.add(exemplaire);
+        }
+      return listeExemplaire;  
     }
 
 }

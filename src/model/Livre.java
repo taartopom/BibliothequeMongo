@@ -42,6 +42,11 @@ public class Livre {
         this.titreLivre = titreLivre;
         this.auteurLivre = auteurLivre;
     }
+
+    public Livre(int idLivre, String titreLivre) {
+        this.idLivre = idLivre;
+        this.titreLivre = titreLivre;
+    }
     
     public Livre() {
     }

@@ -133,7 +133,8 @@ public class AuteurDAO implements AuteurInterface {
 	       
 	        /*maj du pays dans l'objet auteur*/
 	        auteur.setPaysAuteur(new Pays((int)objPays.get("_id"),
-	                objPays.get("nomPays").toString()));
+	                objPays.get("nomPays").toString())
+                );
 		
 		return auteur;
 	}

@@ -34,6 +34,12 @@ public class Auteur {
         this.dateNaissanceAuteur = dateNaissanceAuteur;
         this.paysAuteur = paysAuteur;
     }
+
+    public Auteur(int idAuteur, String nomAuteur, String prenomAuteur) {
+        this.idAuteur = idAuteur;
+        this.nomAuteur = nomAuteur;
+        this.prenomAuteur = prenomAuteur;
+    }
     
 
     public Auteur() {

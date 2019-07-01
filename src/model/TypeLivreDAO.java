@@ -111,7 +111,7 @@ public class TypeLivreDAO implements TypeLivreInterface {
 	}
 
 /*-----------------------------------------------------------------------------------*/
-	//pour récuperer un seul type de livre avec son id
+	//pour recuperer un seul type de livre avec son id
 	@Override
 	public TypeLivre getOneTypeLivre(int idTypeLivre) {
 		 // creation d'un document pays

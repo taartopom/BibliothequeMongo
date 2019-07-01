@@ -36,9 +36,9 @@ public class Auteur {
     }
     
 
-public Auteur() {
+    public Auteur() {
 		paysAuteur = new Pays();
-	}
+    }
 
 /*-----------------------------------------------------------------------------*/ 
     //Getter

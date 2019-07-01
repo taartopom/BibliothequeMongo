@@ -11,8 +11,8 @@ package model;
  */
 public class Exemplaire {
     private String refExemplaire;
-    private Edition idEdition;
-    private Livre idLivre;
+    private Edition idEditionExemplaire;
+    private Livre idLivreExemplaire;
     
 /*-----------------------------------------------------------------------------*/ 
     //Constructeur
@@ -20,8 +20,8 @@ public class Exemplaire {
 
     public Exemplaire(String refExemplaire, Edition idEdition, Livre idLivre) {
         this.refExemplaire = refExemplaire;
-        this.idEdition = idEdition;
-        this.idLivre = idLivre;
+        this.idEditionExemplaire = idEditionExemplaire;
+        this.idLivreExemplaire = idLivreExemplaire;
     }
 
     public Exemplaire(String refExemplaire) {
@@ -39,12 +39,12 @@ public class Exemplaire {
         return refExemplaire;
     }
 
-    public Edition getIdEdition() {
-        return idEdition;
+    public Edition getIdEditionExemplaire() {
+        return idEditionExemplaire;
     }
 
-    public Livre getIdLivre() {
-        return idLivre;
+    public Livre getIdLivreExemplaire() {
+        return idLivreExemplaire;
     }
     
 /*-----------------------------------------------------------------------------*/ 
@@ -55,12 +55,12 @@ public class Exemplaire {
         this.refExemplaire = refExemplaire;
     }
 
-    public void setIdEdition(Edition idEdition) {
-        this.idEdition = idEdition;
+    public void setIdEditionExemplaire(Edition idEditionExemplaire) {
+        this.idEditionExemplaire = idEditionExemplaire;
     }
 
-    public void setIdLivre(Livre idLivre) {
-        this.idLivre = idLivre;
+    public void setIdLivreExemplaire(Livre idLivreExemplaire) {
+        this.idLivreExemplaire = idLivreExemplaire;
     }
 /*-----------------------------------------------------------------------------*/ 
     //toString
@@ -68,7 +68,7 @@ public class Exemplaire {
 
     @Override
     public String toString() {
-        return "Exemplaire{" + "refExemplaire=" + refExemplaire + ", idEdition=" + idEdition + ", idLivre=" + idLivre + '}';
+        return "Exemplaire{" + "refExemplaire=" + refExemplaire + ", idEdition=" + idEditionExemplaire + ", idLivre=" + idLivreExemplaire + '}';
     }
 
 }

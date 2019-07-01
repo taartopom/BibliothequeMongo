@@ -19,12 +19,12 @@ public class EditionDAO implements EditionInterface {
 /*-----------------------------------------------------------------------------------*/
    // Connexion a la db
 /*-----------------------------------------------------------------------------------*/  
-  	public EditeurDAO() {
+  	public EditionDAO() {
         // connexion a la DB
         this.db = Connexion.getConnexion();
         
         //connexion a la collection Pays
-        this.collectionEditeur = this.db.getCollection("Editeur");
+        this.collectionEdition = this.db.getCollection("Editeur");
     }  
   	
 /*-----------------------------------------------------------------------------------*/

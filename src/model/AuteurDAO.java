@@ -38,18 +38,18 @@ public class AuteurDAO implements AuteurInterface {
 	 *private Pays paysAuteur;*/
    	
 /*-----------------------------------------------------------------------------------*/
-	//pour ajouter un auteur à la bdd
+	//pour ajouter un auteur a la bdd
 @Override
-		public void addAuteur(Auteur auteur) {
-	       
-	        BasicDBObject docAuteur = new BasicDBObject();
-	        docAuteur.append("_id", auteur.getIdAuteur())
-                 .append("nomAuteur", auteur.getNomAuteur())
-                 .append("prenomAuteur", auteur.getPrenomAuteur())
-                 .append("dateNaissanceAuteur", auteur.getDateNaissanceAuteur())
-                 .append("idPaysAuteur",new BasicDBObject(
-                        "_id",auteur.getPaysAuteur().getIdPays())
-                        .append("nomPays",auteur.getPaysAuteur().getNomPays()));
+    public void addAuteur(Auteur auteur) {
+
+        BasicDBObject docAuteur = new BasicDBObject();
+        docAuteur.append("_id", auteur.getIdAuteur())
+            .append("nomAuteur", auteur.getNomAuteur())
+            .append("prenomAuteur", auteur.getPrenomAuteur())
+            .append("dateNaissanceAuteur", auteur.getDateNaissanceAuteur())
+            .append("idPaysAuteur",new BasicDBObject(
+                "_id",auteur.getPaysAuteur().getIdPays())
+                .append("nomPays",auteur.getPaysAuteur().getNomPays()));
         this.collectionAuteur.insert(docAuteur);
 		
 	}
@@ -68,14 +68,14 @@ public class AuteurDAO implements AuteurInterface {
 	//pour la modification d'un auteur
 @Override
 	public void updateAuteur(Auteur auteur) {
-		BasicDBObject docAuteurNew = new BasicDBObject();
-		docAuteurNew.append("_id", auteur.getIdAuteur())
-        .append("nomAuteur", auteur.getNomAuteur())
-        .append("prenomAuteur", auteur.getPrenomAuteur())
-        .append("dateNaissanceAuteur", auteur.getDateNaissanceAuteur())
-        .append("idPaysAuteur",new BasicDBObject(
-               "_id",auteur.getPaysAuteur().getIdPays())
-               .append("nomPays",auteur.getPaysAuteur().getNomPays()));
+            BasicDBObject docAuteurNew = new BasicDBObject();
+            docAuteurNew.append("_id", auteur.getIdAuteur())
+                .append("nomAuteur", auteur.getNomAuteur())
+                .append("prenomAuteur", auteur.getPrenomAuteur())
+                .append("dateNaissanceAuteur", auteur.getDateNaissanceAuteur())
+                .append("idPaysAuteur",new BasicDBObject(
+                    "_id",auteur.getPaysAuteur().getIdPays())
+                    .append("nomPays",auteur.getPaysAuteur().getNomPays()));
 		
 		BasicDBObject docAuteurOld = new BasicDBObject();
 		docAuteurOld.append("_id",auteur.getIdAuteur());

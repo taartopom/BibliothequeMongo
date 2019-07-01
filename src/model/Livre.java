@@ -15,6 +15,7 @@ public class Livre {
     private String anneeLivre;
     private String resumeLivre;
     private TypeLivre typelivre;
+    private Auteur auteurLivre; 
     
 /*-----------------------------------------------------------------------------*/ 
     //Constructeur
@@ -26,6 +27,23 @@ public class Livre {
         this.anneeLivre = anneeLivre;
         this.resumeLivre = resumeLivre;
         this.typelivre = typelivre;
+    }
+
+    public Livre(int idLivre, String titreLivre, String resumeLivre, TypeLivre typelivre, Auteur auteurLivre) {
+        this.idLivre = idLivre;
+        this.titreLivre = titreLivre;
+        this.resumeLivre = resumeLivre;
+        this.typelivre = typelivre;
+        this.auteurLivre = auteurLivre;
+    }
+
+    public Livre(int idLivre, String titreLivre, Auteur auteurLivre) {
+        this.idLivre = idLivre;
+        this.titreLivre = titreLivre;
+        this.auteurLivre = auteurLivre;
+    }
+    
+    public Livre() {
     }
     
 /*-----------------------------------------------------------------------------*/ 
@@ -51,6 +69,11 @@ public class Livre {
     public TypeLivre getTypelivre() {
         return typelivre;
     }
+
+    public Auteur getAuteurLivre() {
+        return auteurLivre;
+    }
+    
 /*-----------------------------------------------------------------------------*/ 
     //Constructeur
 /*-----------------------------------------------------------------------------*/
@@ -74,13 +97,20 @@ public class Livre {
     public void setTypelivre(TypeLivre typelivre) {
         this.typelivre = typelivre;
     }
+
+    public void setAuteurLivre(Auteur auteurLivre) {
+        this.auteurLivre = auteurLivre;
+    }
+    
 /*-----------------------------------------------------------------------------*/ 
     //Constructeur
 /*-----------------------------------------------------------------------------*/
 
     @Override
     public String toString() {
-        return "Livre{" + "idLivre=" + idLivre + ", titreLivre=" + titreLivre + ", anneeLivre=" + anneeLivre + ", resumeLivre=" + resumeLivre + ", typelivre=" + typelivre + '}';
+        return "Livre{" + "idLivre=" + idLivre + ", titreLivre=" + titreLivre + ", anneeLivre=" + anneeLivre + ", resumeLivre=" + resumeLivre + ", typelivre=" + typelivre + ", auteurLivre=" + auteurLivre + '}';
     }
+
+
     
 }

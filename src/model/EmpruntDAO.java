@@ -1,0 +1,130 @@
+package model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JOptionPane;
+
+import com.mongodb.BasicDBList;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
+
+public class EmpruntDAO implements EmpruntInterface {
+/*-----------------------------------------------------------------------------------*/
+    // Connexion
+/*-----------------------------------------------------------------------------------*/
+   private DB db;
+   private DBCollection collectionEmprunt;
+   
+/*-----------------------------------------------------------------------------------*/
+   // Connexion a la db
+/*-----------------------------------------------------------------------------------*/  
+  	public EmpruntDAO() {
+        // connexion a la DB
+        this.db = Connexion.getConnexion();
+        
+        //connexion a la collection Pays
+        this.collectionEmprunt = this.db.getCollection("Emprunt");
+    }
+  	
+/*-----------------------------------------------------------------------------------*/
+    // methode du CRUD
+/*-----------------------------------------------------------------------------------*/  
+  	/*Attribut de la class emprunt
+  	 * private int idEmprunt;
+     * private String dateEmprunt;
+     * private int delaisEmprunt;
+     * private Inscrit idInscritEmprunt;
+     * private Exemplaire refExemplaireEmprunt; */
+
+/*-----------------------------------------------------------------------------------*/  
+  	// pour l'ajout d'un emprunt de livre
+@Override
+	public void addEmprunt(Emprunt emprunt) {
+		BasicDBObject docEmprunt = new BasicDBObject("_id",emprunt.getIdEmprunt())
+				.append("dateEmprunt", emprunt.getDateEmprunt())
+				.append("delaiEmprunt", emprunt.getDelaisEmprunt())
+				.append("idInscritEmprunt", new BasicDBObject("_id", emprunt.getIdInscritEmprunt())
+				.append("refExemplaireEmprunt", new BasicDBObject("_id", emprunt.getRefExemplaireEmprunt())));
+		this.collectionEmprunt.insert(docEmprunt);
+		
+	}
+
+/*-----------------------------------------------------------------------------------*/  
+	//pour la suppression d'un emprunt de livre
+@Override
+	public void deleteEmprunt(Emprunt emprunt) {
+		BasicDBObject docEmprunt = new BasicDBObject("_id",emprunt.getIdEmprunt());
+		DBObject obj = this.collectionEmprunt.findOne(docEmprunt);
+		
+		BasicDBList listeLivre = (BasicDBList)obj.get("contenir");
+		//verification de l'emprunt , s'il contient des livres pour la suppression
+		if(listeLivre.isEmpty()) {
+			this.collectionEmprunt.remove(obj);
+			JOptionPane.showMessageDialog(null, "Suppression effectuée avec succés");
+		}else {
+			JOptionPane.showMessageDialog(null,"Suppression impossible car l'emprunt n°: " + emprunt.getIdEmprunt() + " contient des éléments");
+		}
+		
+		
+	}
+
+/*-----------------------------------------------------------------------------------*/  
+ 	//pour afficher la  liste des emprunt
+	@Override
+	public List<Emprunt> getAllEmprunt() {
+		List<Emprunt> listeEmprunt =  new ArrayList<>();
+		
+		DBCursor cursor = this.collectionEmprunt.find();
+		
+	/*	while(cursor.hasNext()) {
+			DBObject objEmprunt = cursor.next();
+			
+			Emprunt emprunt = new Emprunt();
+			emprunt.setIdEmprunt((int)objEmprunt.get("-id"));
+			emprunt.setDateEmprunt(objEmprunt.get("dateEmprunt").toString());
+			emprunt.setDelaisEmprunt((int)objEmprunt.get("delaisEmprunt"));
+			;
+		}
+		*/
+		return null;
+	}
+
+/*-----------------------------------------------------------------------------------*/
+	//pour selectionner un emprunt avec son Id
+	@Override
+	public Emprunt getOneEmprunt(int idEmprunt) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+/*-----------------------------------------------------------------------------------*/
+	//pour ajouter un livre a emprunter
+	@Override
+	public void addLivreEmprunt(Emprunt emprunt, Livre livre) {
+		// TODO Auto-generated method stub
+		
+	}
+
+/*-----------------------------------------------------------------------------------*/
+	//pour supprimer un livre a emprunter
+	@Override
+	public void deleteLivreEmprunt(Emprunt emprunt, Livre livre) {
+		// TODO Auto-generated method stub
+		
+	}
+
+/*-----------------------------------------------------------------------------------*/
+	//pour modifier un livre de l'emprunt
+	@Override
+	public void modifierLivreEmprunt(Emprunt emprunt, Livre livre) {
+		// TODO Auto-generated method stub
+		
+	}  
+
+
+
+}

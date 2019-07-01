@@ -18,13 +18,13 @@ public class Inscrit {
     private String villeInscrit;
     private int cpInscrit;
     private String emailInscrit;
-    private int numTelInscrit;
-    private int numGSMIscrit;
+    private String numTelInscrit;
+    private String numGSMIscrit;
 /*-----------------------------------------------------------------------------*/ 
     //Constructeur
 /*-----------------------------------------------------------------------------*/
 
-    public Inscrit(int idInscrit, String nomInscrit, String prenomInscrit, String dateNaissanceInscrit, String rueInscrit, String villeInscrit, int cpInscrit, String emailInscrit, int numTelInscrit, int numGSMIscrit) {
+    public Inscrit(int idInscrit, String nomInscrit, String prenomInscrit, String dateNaissanceInscrit, String rueInscrit, String villeInscrit, int cpInscrit, String emailInscrit, String numTelInscrit, String numGSMIscrit) {
         this.idInscrit = idInscrit;
         this.nomInscrit = nomInscrit;
         this.prenomInscrit = prenomInscrit;
@@ -37,7 +37,7 @@ public class Inscrit {
         this.numGSMIscrit = numGSMIscrit;
     }
 
-    public Inscrit(int idInscrit, String nomInscrit, String prenomInscrit, String dateNaissanceInscrit, String emailInscrit, int numTelInscrit, int numGSMIscrit) {
+    public Inscrit(int idInscrit, String nomInscrit, String prenomInscrit, String dateNaissanceInscrit, String emailInscrit, String numTelInscrit, String numGSMIscrit) {
         this.idInscrit = idInscrit;
         this.nomInscrit = nomInscrit;
         this.prenomInscrit = prenomInscrit;
@@ -92,11 +92,11 @@ public class Inscrit {
         return emailInscrit;
     }
 
-    public int getNumTelInscrit() {
+    public String getNumTelInscrit() {
         return numTelInscrit;
     }
 
-    public int getNumGSMIscrit() {
+    public String getNumGSMIscrit() {
         return numGSMIscrit;
     }
 /*-----------------------------------------------------------------------------*/ 
@@ -135,11 +135,11 @@ public class Inscrit {
         this.emailInscrit = emailInscrit;
     }
 
-    public void setNumTelInscrit(int numTelInscrit) {
+    public void setNumTelInscrit(String numTelInscrit) {
         this.numTelInscrit = numTelInscrit;
     }
 
-    public void setNumGSMIscrit(int numGSMIscrit) {
+    public void setNumGSMIscrit(String numGSMIscrit) {
         this.numGSMIscrit = numGSMIscrit;
     }
 /*-----------------------------------------------------------------------------*/ 

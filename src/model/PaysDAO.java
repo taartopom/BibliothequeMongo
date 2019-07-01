@@ -102,7 +102,7 @@ public class PaysDAO implements PaysInterface {
 	        //
 	        Pays pays= new Pays();
 	        pays.setIdPays((int) objPays.get("_id"));
-	        pays.setNomPays(objPays.get("nom¨Pays").toString());
+	        pays.setNomPays(objPays.get("nomPays").toString());
 	  
 	        return pays;
 	 

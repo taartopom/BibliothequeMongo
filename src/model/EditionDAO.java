@@ -24,7 +24,7 @@ public class EditionDAO implements EditionInterface {
         this.db = Connexion.getConnexion();
         
         //connexion a la collection Pays
-        this.collectionEdition = this.db.getCollection("Editeur");
+        this.collectionEdition = this.db.getCollection("Edition");
     }  
   	
 /*-----------------------------------------------------------------------------------*/
@@ -68,7 +68,7 @@ public class EditionDAO implements EditionInterface {
         DBObject objEdition = this.collectionEdition.findOne(id);
         
         //
-        Edition edition= new Edition();
+        Edition edition = new Edition();
         edition.setIdEdition((int) objEdition.get("_id"));
         edition.setNomLibelle(objEdition.get("nomLibelle").toString());
   

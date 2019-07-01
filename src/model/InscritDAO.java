@@ -22,7 +22,7 @@ public class InscritDAO implements InscritInterface{
         this.db = Connexion.getConnexion();
         
         //connexion a la collection Pays
-        this.collectionInscrit = this.db.getCollection("Auteur");
+        this.collectionInscrit = this.db.getCollection("Inscrit");
     }
 
 /*-----------------------------------------------------------------------------------*/
@@ -37,8 +37,8 @@ public class InscritDAO implements InscritInterface{
      * private String villeInscrit;
      * private int cpInscrit;
      * private String emailInscrit;
-     * private int numTelInscrit;
-     * private int numGSMIscrit;
+     * private String numTelInscrit;
+     * private String numGSMIscrit;
    	 */
    	
 /*-----------------------------------------------------------------------------------*/  
@@ -55,8 +55,8 @@ public class InscritDAO implements InscritInterface{
     		.append("villeInscrit", inscrit.getVilleInscrit())
     		.append("cpInscrit", inscrit.getCpInscrit())
     		.append("emailInscrit", inscrit.getEmailInscrit())
-    		.append("numTelInbscrit",inscrit.getNumTelInscrit())
-    		.append("numGSMIscrit", inscrit.getNumGSMIscrit());
+    		.append("numTelInscrit",inscrit.getNumTelInscrit())
+    		.append("numGSMInscrit", inscrit.getNumGSMIscrit());
 
     	this.collectionInscrit.insert(docInscrit);
 		
@@ -88,8 +88,8 @@ public class InscritDAO implements InscritInterface{
     		.append("villeInscrit", inscrit.getVilleInscrit())
     		.append("cpInscrit", inscrit.getCpInscrit())
     		.append("emailInscrit", inscrit.getEmailInscrit())
-    		.append("numTelInbscrit",inscrit.getNumTelInscrit())
-    		.append("numGSMIscrit", inscrit.getNumGSMIscrit());
+    		.append("numTelInscrit",inscrit.getNumTelInscrit())
+    		.append("numGSMInscrit", inscrit.getNumGSMIscrit());
     	
     	BasicDBObject docInscritOld = new BasicDBObject();
     	docInscritOld.append("_id", inscrit.getIdInscrit());
@@ -117,8 +117,8 @@ public class InscritDAO implements InscritInterface{
 	        inscrit.setVilleInscrit(obj.get("villeInscrit").toString());
 	        inscrit.setCpInscrit((int)obj.get("cpInscrit"));
 	        inscrit.setEmailInscrit(obj.get("emailInscrit").toString());
-	        inscrit.setNumTelInscrit((int)obj.get("numTelInscrit"));
-	        inscrit.setNumGSMIscrit((int)obj.get("numGSMInscrit"));
+	        inscrit.setNumTelInscrit(obj.get("numTelInscrit").toString());
+	        inscrit.setNumGSMIscrit(obj.get("numGSMInscrit").toString());
 
 	        //ajout de l'inscrit la liste des inscrits
 	        listeInscrit.add(inscrit);       
@@ -131,22 +131,22 @@ public class InscritDAO implements InscritInterface{
 
 	@Override
 	public Inscrit getOneInscrit(int idInscrit) {
-		BasicDBObject id = new BasicDBObject("_id", idInscrit);
+            BasicDBObject id = new BasicDBObject("_id", idInscrit);
 		
-		DBObject obj = this.collectionInscrit.findOne(id);
-		Inscrit inscrit = new Inscrit();
-        inscrit.setIdInscrit((int)obj.get("_id"));
-        inscrit.setNomInscrit(obj.get("nomInscrit").toString());
-        inscrit.setPrenomInscrit(obj.get("prenomInscrit").toString());
-        inscrit.setDateNaissanceInscrit(obj.get("dateNaissanceInscrit").toString());
-        inscrit.setRueInscrit(obj.get("rueInscrit").toString());
-        inscrit.setVilleInscrit(obj.get("villeInscrit").toString());
-        inscrit.setCpInscrit((int)obj.get("cpInscrit"));
-        inscrit.setEmailInscrit(obj.get("emailInscrit").toString());
-        inscrit.setNumTelInscrit((int)obj.get("numTelInscrit"));
-        inscrit.setNumGSMIscrit((int)obj.get("numGSMInscrit"));
+            DBObject obj = this.collectionInscrit.findOne(id);
+            Inscrit inscrit = new Inscrit();
+            inscrit.setIdInscrit((int)obj.get("_id"));
+            inscrit.setNomInscrit(obj.get("nomInscrit").toString());
+            inscrit.setPrenomInscrit(obj.get("prenomInscrit").toString());
+            inscrit.setDateNaissanceInscrit(obj.get("dateNaissanceInscrit").toString());
+            inscrit.setRueInscrit(obj.get("rueInscrit").toString());
+            inscrit.setVilleInscrit(obj.get("villeInscrit").toString());
+            inscrit.setCpInscrit((int)obj.get("cpInscrit"));
+            inscrit.setEmailInscrit(obj.get("emailInscrit").toString());
+            inscrit.setNumTelInscrit(obj.get("numTelInscrit").toString());
+            inscrit.setNumGSMIscrit(obj.get("numGSMInscrit").toString());
 		
-		return inscrit;
+            return inscrit;
 	}
    	
 

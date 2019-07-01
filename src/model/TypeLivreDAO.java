@@ -70,10 +70,10 @@ public class TypeLivreDAO implements TypeLivreInterface {
 	@Override
 	public void updateTypeLivre(TypeLivre typeLivre) {
 		// creation d'un nouveau document pays
-        BasicDBObject docTypeLivreNew = new BasicDBObject();
+            BasicDBObject docTypeLivreNew = new BasicDBObject();
         
-        //creation du nouveau pays
-        docTypeLivreNew.append("_id", typeLivre.getIdTypeLivre())
+            //creation du nouveau pays
+            docTypeLivreNew.append("_id", typeLivre.getIdTypeLivre())
                        .append("Libelle", typeLivre.getLibelle());
         
         // creation d'un document pays
@@ -83,7 +83,7 @@ public class TypeLivreDAO implements TypeLivreInterface {
         docTypeLivreOld.append("_id", typeLivre.getIdTypeLivre());
         
         //remplacement de l'ancien document pays par le nouveaux document pays
-        this.collectionTypeLivre.update(docTypeLivreNew, docTypeLivreOld); 
+        this.collectionTypeLivre.update(docTypeLivreOld, docTypeLivreNew); 
 		
 	}
 

@@ -317,9 +317,9 @@ public class Bibliotheque {
         
 /*----------------------------------------------------------------------*/
     //Pour selection un exemplaire
-        ExemplaireDAO exDAO =  new ExemplaireDAO();
-        List<Exemplaire> listExemplaire = exDAO.getAllExemplaire();
-        System.out.println(listExemplaire);
+        //ExemplaireDAO exDAO =  new ExemplaireDAO();
+        //List<Exemplaire> listExemplaire = exDAO.getAllExemplaire();
+        //System.out.println(listExemplaire);
 /*----------------------------------------------------------------------*/
     //Emprunt
 /*----------------------------------------------------------------------*/
@@ -327,7 +327,7 @@ public class Bibliotheque {
         //EmpruntDAO emDAO =  new EmpruntDAO();
         //Emprunt emprunt  = new Emprunt(0, "02/07/2019", 15);
         //Emprunt emprunt  = new Emprunt(1, "a modifier", 6);
-        //Emprunt emprunt  = new Emprunt(2, "a supprimer", 0);
+        //Emprunt emprunt  = new Emprunt(3, "03/06/2019", 0);
         //emDAO.addEmprunt(emprunt);
         
 /*----------------------------------------------------------------------*/
@@ -340,11 +340,16 @@ public class Bibliotheque {
 /*----------------------------------------------------------------------*/
 /************************A REVOIR************************/ 
     //ajouter un livre a l'emprunt
-        //EmpruntDAO emDAO =  new EmpruntDAO();
-        //Livre livre  =  new Livre(0, "Level 26","2011", "un livre sur un meutrier en série", new TypeLivre(0, "policier"), new Auteur(2,"Abel", "Barbara"));
-        //Emprunt empruntAvecLivre = new Emprunt(2, "16/10/2005", 6);
+        EmpruntDAO emDAO =  new EmpruntDAO();
         
-        //emDAO.addLivreEmprunt(empruntAvecLivre, livre);
+        Edition idEditionExemplaire = new Edition(10, "DC");
+        Livre idLivreExemplaire = new Livre (5, "  a supprimer","1998", "Contre le joker", new TypeLivre(1, "fantastique"), new Auteur(7,"Ali", "Baba"));
+        Exemplaire refExemplaireEmprunt =  new Exemplaire(15, idEditionExemplaire, idLivreExemplaire);
+        Inscrit idInscritEmprunt = new Inscrit(0,"dupont","pierre", "13/06/1965","10 rue des arbres","Lille",59000,"pd@email.com","0328629342", "0628629342");
+        Livre livre  =  new Livre(0, "Level 26","2011", "un livre sur un meutrier en série", new TypeLivre(0, "policier"), new Auteur(2,"Abel", "Barbara"));
+        Emprunt empruntAvecLivre = new Emprunt(2, "02/07/2019", 16, idInscritEmprunt, refExemplaireEmprunt);
+        
+        emDAO.addLivreEmprunt(empruntAvecLivre, livre);
         
         
     }

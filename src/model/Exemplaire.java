@@ -10,7 +10,7 @@ package model;
  * @author Administrateur
  */
 public class Exemplaire {
-    private String refExemplaire;
+    private int refExemplaire;
     private Edition idEditionExemplaire;
     private Livre idLivreExemplaire;
     
@@ -18,24 +18,26 @@ public class Exemplaire {
     //Constructeur
 /*-----------------------------------------------------------------------------*/
 
-    public Exemplaire(String refExemplaire, Edition idEdition, Livre idLivre) {
+    public Exemplaire(int refExemplaire, Edition idEditionExemplaire, Livre idLivreExemplaire) {
         this.refExemplaire = refExemplaire;
         this.idEditionExemplaire = idEditionExemplaire;
         this.idLivreExemplaire = idLivreExemplaire;
     }
 
-    public Exemplaire(String refExemplaire) {
+    public Exemplaire(int refExemplaire) {
         this.refExemplaire = refExemplaire;
     }
 
     public Exemplaire() {
     }
-    
+
+
+
 /*-----------------------------------------------------------------------------*/ 
     //Getter
 /*-----------------------------------------------------------------------------*/
 
-    public String getRefExemplaire() {
+    public int getRefExemplaire() {
         return refExemplaire;
     }
 
@@ -51,7 +53,7 @@ public class Exemplaire {
     //Setter
 /*-----------------------------------------------------------------------------*/ 
 
-    public void setRefExemplaire(String refExemplaire) {
+    public void setRefExemplaire(int refExemplaire) {
         this.refExemplaire = refExemplaire;
     }
 
@@ -68,7 +70,9 @@ public class Exemplaire {
 
     @Override
     public String toString() {
-        return "Exemplaire{" + "refExemplaire=" + refExemplaire + ", idEdition=" + idEditionExemplaire + ", idLivre=" + idLivreExemplaire + '}';
+        return "Exemplaire{" + "refExemplaire=" + refExemplaire + ", idEditionExemplaire=" + idEditionExemplaire + ", idLivreExemplaire=" + idLivreExemplaire + '}';
     }
+
+   
 
 }

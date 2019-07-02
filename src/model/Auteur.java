@@ -5,6 +5,9 @@
  */
 package model;
 
+import com.mongodb.BasicDBObject;
+import java.util.List;
+
 /**
  *
  * @author Administrateur
@@ -15,11 +18,13 @@ public class Auteur {
     private String prenomAuteur;
     private String dateNaissanceAuteur;
     private Pays paysAuteur;
+    private List<BasicDBObject> listLivre;
+    
     
 /*-----------------------------------------------------------------------------*/ 
     //Constructeur
 /*-----------------------------------------------------------------------------*/
-
+    
     public Auteur(int idAuteur, String nomAuteur, String prenomAuteur, String dateNaissanceAuteur) {
         this.idAuteur = idAuteur;
         this.nomAuteur = nomAuteur;
@@ -40,10 +45,13 @@ public class Auteur {
         this.nomAuteur = nomAuteur;
         this.prenomAuteur = prenomAuteur;
     }
-    
 
+    public Auteur(List<BasicDBObject> listLivre) {
+        this.listLivre = listLivre;
+    }
+    
     public Auteur() {
-		paysAuteur = new Pays();
+	paysAuteur = new Pays();
     }
 
 /*-----------------------------------------------------------------------------*/ 
@@ -69,6 +77,10 @@ public class Auteur {
     public Pays getPaysAuteur() {
         return paysAuteur;
     }
+
+    public List<BasicDBObject> getListLivre() {
+        return listLivre;
+    }
     
 /*-----------------------------------------------------------------------------*/ 
     //Setter
@@ -93,6 +105,10 @@ public class Auteur {
     public void setPaysAuteur(Pays paysAuteur) {
         this.paysAuteur = paysAuteur;
     }
+
+    public void setListLivre(List<BasicDBObject> listLivre) {
+        this.listLivre = listLivre;
+    }
     
 /*-----------------------------------------------------------------------------*/ 
     //toString
@@ -100,8 +116,10 @@ public class Auteur {
 
     @Override
     public String toString() {
-        return "Auteur{" + "idAuteur=" + idAuteur + ", nomAuteur=" + nomAuteur + ", prenomAuteur=" + prenomAuteur + ", dateNaissanceAuteur=" + dateNaissanceAuteur + ", paysAuteur=" + paysAuteur + '}';
+        return "Auteur{" + "idAuteur=" + idAuteur + ", nomAuteur=" + nomAuteur + ", prenomAuteur=" + prenomAuteur + ", dateNaissanceAuteur=" + dateNaissanceAuteur + ", paysAuteur=" + paysAuteur + ", listLivre=" + listLivre + '}';
     }
+
+
 
 
     

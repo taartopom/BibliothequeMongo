@@ -62,12 +62,12 @@ public class EmpruntDAO implements EmpruntInterface {
 		
 		BasicDBList listeLivre = (BasicDBList)obj.get("contenir");
 		//verification de l'emprunt , s'il contient des livres pour la suppression
-		if(listeLivre.isEmpty()) {
+		//if(listeLivre.isEmpty()) {
 			this.collectionEmprunt.remove(obj);
-			JOptionPane.showMessageDialog(null, "Suppression effectuée avec succés");
-		}else {
-			JOptionPane.showMessageDialog(null,"Suppression impossible car l'emprunt n°: " + emprunt.getIdEmprunt() + " contient des éléments");
-		}
+			//JOptionPane.showMessageDialog(null, "Suppression effectuï¿½e avec succes");
+		//}else {
+			//JOptionPane.showMessageDialog(null,"Suppression impossible car l'emprunt nÂ°: " + emprunt.getIdEmprunt() + " contient des ï¿½lï¿½ments");
+		//}
 		
 		
 	}
@@ -103,10 +103,49 @@ public class EmpruntDAO implements EmpruntInterface {
 	
 /*-----------------------------------------------------------------------------------*/
 	//pour ajouter un livre a emprunter
+        /*Attribut de la class livre
+        * private int idLivre;
+        * private String titreLivre;
+        * private String anneeLivre;
+        * private String resumeLivre;
+        * private TypeLivre typelivre;
+        * private Auteur auteurLivre;*/
+        
+        
 	@Override
 	public void addLivreEmprunt(Emprunt emprunt, Livre livre) {
-		// TODO Auto-generated method stub
-		
+            //crÃ©ation de l'ancienne commande avec juste l'id
+            BasicDBObject docEmpruntOld = new BasicDBObject("_id", emprunt.getIdEmprunt());
+            //recherche de la commande
+            DBObject objEmprunt = this.collectionEmprunt.findOne(docEmpruntOld);
+            //rÃ©cupÃ©ration de la liste des produits de la commande
+            BasicDBList listLivre = (BasicDBList) objEmprunt.get("contenir");
+            
+            //ajout du nouveau Livre Ã  la liste des livre a emprunter
+            BasicDBObject newLivreEmprunt =  new BasicDBObject("_id", livre.getIdLivre())
+                .append("titreLivre",livre.getTitreLivre())
+                .append("anneeLivre",livre.getAnneeLivre())
+                .append("resumeLivre", livre.getResumeLivre())
+               
+                .append("typeLivre",new BasicDBObject(
+                "_id",livre.getTypeLivre().getIdTypeLivre())
+                    .append("libelle",livre.getTypeLivre().getLibelle())
+                       
+                    .append("auteurLivre", new BasicDBObject(
+                    "_id",livre.getAuteurLivre().getIdAuteur())
+                    .append("nomAuteur",livre.getAuteurLivre().getNomAuteur())
+                    .append("prenomAuteur",livre.getAuteurLivre().getPrenomAuteur()))
+            );
+            listLivre.add(newLivreEmprunt);
+            
+            //crÃ©ation de la nouvelle commande
+            BasicDBObject docEmpruntNew =  new BasicDBObject("_id", emprunt.getIdEmprunt())
+                    .append("dateEmprunt",emprunt.getDateEmprunt())
+                    .append("delaisEmprunt",emprunt.getDelaisEmprunt());
+            
+            this.collectionEmprunt.update(docEmpruntOld, docEmpruntNew);
+                    
+            
 	}
 
 /*-----------------------------------------------------------------------------------*/

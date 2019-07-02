@@ -45,21 +45,22 @@ public class LivreDAO implements LivreInterface{
         * private Auteur auteurLivre;
 /*-----------------------------------------------------------------------------------*/
     //pour ajouter un livre a la bdd
-@Override
 
+                
     public void addLivre(Livre livre) {
        BasicDBObject docLivre = new BasicDBObject();
        
        docLivre.append("_id",livre.getIdLivre())
                .append("titreLivre",livre.getTitreLivre())
                .append("anneeLivre",livre.getAnneeLivre())
-               .append("resumelivre", livre.getResumeLivre())
+               .append("resumeLivre", livre.getResumeLivre())
                
                .append("typeLivre",new BasicDBObject(
-               "_id",livre.getTypelivre().getIdTypeLivre())
-                    .append("libelle",livre.getTypelivre().getLibelle())
-                .append("auteurLivre", new BasicDBObject(
-                "_id",livre.getAuteurLivre().getIdAuteur())
+               "_id",livre.getTypeLivre().getIdTypeLivre())
+                    .append("libelle",livre.getTypeLivre().getLibelle())
+                       
+                    .append("auteurLivre", new BasicDBObject(
+                    "_id",livre.getAuteurLivre().getIdAuteur())
                     .append("nomAuteur",livre.getAuteurLivre().getNomAuteur())
                     .append("prenomAuteur",livre.getAuteurLivre().getPrenomAuteur()))
                );
@@ -82,11 +83,11 @@ public class LivreDAO implements LivreInterface{
          docLivreNew.append("_id",livre.getIdLivre())
                .append("titreLivre",livre.getTitreLivre())
                .append("anneeLivre",livre.getAnneeLivre())
-               .append("resumelivre", livre.getResumeLivre())
+               .append("resumeLivre", livre.getResumeLivre())
                
                .append("typeLivre",new BasicDBObject(
-               "_id",livre.getTypelivre().getIdTypeLivre())
-                    .append("libelle",livre.getTypelivre().getLibelle())
+               "_id",livre.getTypeLivre().getIdTypeLivre())
+                    .append("libelle",livre.getTypeLivre().getLibelle())
                 .append("auteurLivre", new BasicDBObject(
                 "_id",livre.getAuteurLivre().getIdAuteur())
                     .append("nomAuteur",livre.getAuteurLivre().getNomAuteur())
@@ -113,15 +114,18 @@ public class LivreDAO implements LivreInterface{
         livre.setAnneeLivre(obj.get("anneeLivre").toString());
         livre.setResumeLivre(obj.get("resumeLivre").toString());
         
-        DBObject objTypeLivre = (DBObject)obj.get("idTypeLivre");
-        livre.setTypelivre(new TypeLivre((int)objTypeLivre.get("_id"),
-                objTypeLivre.get("libelle").toString()));
+        DBObject objTypeLivre = (DBObject)obj.get("typeLivre");
         
-        DBObject objAuteurLivre = (DBObject)obj.get("idAuteurLivre");
+        
+        livre.setTypeLivre(new TypeLivre((int)objTypeLivre.get("_id"),
+                objTypeLivre.get("libelle").toString()));
+        DBObject objAuteurLivre = (DBObject)objTypeLivre.get("auteurLivre");
+
         livre.setAuteurLivre(new Auteur((int)objAuteurLivre.get("_id"),
                 objAuteurLivre.get("nomAuteur").toString(),
                 objAuteurLivre.get("prenomAuteur").toString()));
         
+       
         return livre;
     }
     
@@ -134,6 +138,7 @@ public class LivreDAO implements LivreInterface{
         DBCursor cursor = this.collectionLivre.find();
         
         while(cursor.hasNext()){
+            
             DBObject obj = cursor.next();
             Livre livre  = new Livre();
             livre.setIdLivre((int)obj.get("_id"));
@@ -141,11 +146,13 @@ public class LivreDAO implements LivreInterface{
             livre.setAnneeLivre(obj.get("anneeLivre").toString());
             livre.setResumeLivre(obj.get("resumeLivre").toString());
 
-            DBObject objTypeLivre = (DBObject)obj.get("idTypeLivre");
-            livre.setTypelivre(new TypeLivre((int)objTypeLivre.get("_id"),
+            // creation du document type livre dans le document livre
+            DBObject objTypeLivre = (DBObject)obj.get("typeLivre");
+            livre.setTypeLivre(new TypeLivre((int)objTypeLivre.get("_id"),
                     objTypeLivre.get("libelle").toString()));
-
-            DBObject objAuteurLivre = (DBObject)obj.get("idAuteurLivre");
+            
+            // creation d'un document auteur dans le document type livre de livre
+            DBObject objAuteurLivre = (DBObject)objTypeLivre.get("auteurLivre");
             livre.setAuteurLivre(new Auteur((int)objAuteurLivre.get("_id"),
                     objAuteurLivre.get("nomAuteur").toString(),
                     objAuteurLivre.get("prenomAuteur").toString()));

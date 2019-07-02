@@ -107,9 +107,12 @@ public class AuteurDAO implements AuteurInterface {
         
         
         /*Creation d'un document pour recupere le pays dans le document auteur */
-        DBObject objPays = (DBObject)obj.get("idPays");
+        DBObject objPays = (DBObject)obj.get("idPaysAuteur");
+        
+        //System.out.println(objPays);
        
         /*maj du pays dans l'objet auteur*/
+        
         auteur.setPaysAuteur(new Pays((int)objPays.get("_id"),
                 objPays.get("nomPays").toString()));
         //ajout de l'auteur la liste
@@ -123,18 +126,19 @@ public class AuteurDAO implements AuteurInterface {
 	// pour la selection d'un seul auteur
 @Override
     public Auteur getOneAuteur(int idAuteur) {
+        
         BasicDBObject id = new BasicDBObject("_id", idAuteur);
 
         DBObject obj = this.collectionAuteur.findOne(id);
 
         Auteur auteur = new Auteur();
-         auteur.setIdAuteur((int)obj.get("_id"));
+        auteur.setIdAuteur((int)obj.get("_id"));
         auteur.setNomAuteur(obj.get("nomAuteur").toString());
         auteur.setPrenomAuteur(obj.get("prenomAuteur").toString());
         auteur.setDateNaissanceAuteur(obj.get("dateNaissanceAuteur").toString());
 
         /*Creation d'un document pour recupere le pays dans le document auteur */
-        DBObject objPays = (DBObject)obj.get("idPays");
+        DBObject objPays = (DBObject)obj.get("idPaysAuteur");
 
         /*maj du pays dans l'objet auteur*/
         auteur.setPaysAuteur(new Pays((int)objPays.get("_id"),

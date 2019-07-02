@@ -96,7 +96,7 @@ public class ExemplaireDAO implements ExemplaireInterface{
         DBObject obj = this.collectionExemplaire.findOne(id);
         
         Exemplaire exemplaire = new Exemplaire();
-        exemplaire.setRefExemplaire(obj.get("_id").toString());
+        exemplaire.setRefExemplaire((int)obj.get("_id"));
         
         //recuperation de l'edition de l'exemplaire choisi
         DBObject objEdition = (DBObject)obj.get("idEdition");
@@ -104,10 +104,10 @@ public class ExemplaireDAO implements ExemplaireInterface{
                 objEdition.get("nomEdition").toString()));
         
         //recuperation du livre de l'exemplaire choisi
-        DBObject objLivre = (DBObject)obj.get("idLivre");
+        DBObject objLivre = (DBObject)objEdition.get("idLivre");
         exemplaire.setIdLivreExemplaire(new Livre(
                 (int)objLivre.get("_id"),
-                objLivre.get("titreLivre").toString()
+                objLivre.get("nomLivre").toString()
         ));
         
         
@@ -126,7 +126,7 @@ public class ExemplaireDAO implements ExemplaireInterface{
         while(cursor.hasNext()){
             DBObject obj = cursor.next();
             Exemplaire exemplaire = new Exemplaire();
-            exemplaire.setRefExemplaire(obj.get("_id").toString());
+            exemplaire.setRefExemplaire((int)obj.get("_id"));
 
             //recuperation de l'edition de l'exemplaire choisi
             DBObject objEdition = (DBObject)obj.get("idEdition");
@@ -134,10 +134,10 @@ public class ExemplaireDAO implements ExemplaireInterface{
                     objEdition.get("nomEdition").toString()));
 
             //recuperation du livre de l'exemplaire choisi
-            DBObject objLivre = (DBObject)obj.get("idLivre");
+            DBObject objLivre = (DBObject)objEdition.get("idLivre");
             exemplaire.setIdLivreExemplaire(new Livre(
                     (int)objLivre.get("_id"),
-                    objLivre.get("titreLivre").toString()));
+                    objLivre.get("nomLivre").toString()));
             //ajout des exemplaire a la liste
             listeExemplaire.add(exemplaire);
         }

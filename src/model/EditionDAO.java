@@ -50,7 +50,7 @@ public class EditionDAO implements EditionInterface {
             DBObject objEdition = cursor.next();
             Edition edition = new Edition();
             edition.setIdEdition((int)objEdition.get("_id"));
-            edition.setNomLibelle(objEdition.get("nomLibelle").toString());
+            edition.setNomLibelle(objEdition.get("nomEdition").toString());
 
             listeEdition.add(edition);       
         }

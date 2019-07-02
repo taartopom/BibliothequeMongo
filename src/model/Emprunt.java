@@ -30,6 +30,13 @@ public class Emprunt {
 
     public Emprunt() {
     }
+
+    public Emprunt(int idEmprunt, String dateEmprunt, int delaisEmprunt) {
+        this.idEmprunt = idEmprunt;
+        this.dateEmprunt = dateEmprunt;
+        this.delaisEmprunt = delaisEmprunt;
+    }
+    
     
 /*-----------------------------------------------------------------------------*/ 
     //Getter

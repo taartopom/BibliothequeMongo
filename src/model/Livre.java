@@ -14,42 +14,48 @@ public class Livre {
     private String titreLivre;
     private String anneeLivre;
     private String resumeLivre;
-    private TypeLivre typelivre;
+    private TypeLivre typeLivre;
     private Auteur auteurLivre; 
     
 /*-----------------------------------------------------------------------------*/ 
     //Constructeur
 /*-----------------------------------------------------------------------------*/
 
-    public Livre(int idLivre, String titreLivre, String anneeLivre, String resumeLivre, TypeLivre typelivre) {
+    public Livre(int idLivre, String titreLivre, String anneeLivre, String resumeLivre, TypeLivre typeLivre, Auteur auteurLivre) {
         this.idLivre = idLivre;
         this.titreLivre = titreLivre;
         this.anneeLivre = anneeLivre;
         this.resumeLivre = resumeLivre;
-        this.typelivre = typelivre;
+        this.typeLivre = typeLivre;
+        this.auteurLivre = auteurLivre;
     }
 
-    public Livre(int idLivre, String titreLivre, String resumeLivre, TypeLivre typelivre, Auteur auteurLivre) {
+    public Livre(TypeLivre typeLivre) {
+        this.typeLivre = typeLivre;
+    }
+
+    public Livre(Auteur auteurLivre) {
+        this.auteurLivre = auteurLivre;
+    }
+
+    public Livre(int idLivre, String titreLivre, String anneeLivre, String resumeLivre) {
         this.idLivre = idLivre;
         this.titreLivre = titreLivre;
+        this.anneeLivre = anneeLivre;
         this.resumeLivre = resumeLivre;
-        this.typelivre = typelivre;
-        this.auteurLivre = auteurLivre;
     }
 
-    public Livre(int idLivre, String titreLivre, Auteur auteurLivre) {
-        this.idLivre = idLivre;
-        this.titreLivre = titreLivre;
-        this.auteurLivre = auteurLivre;
+    public Livre() {
+        typeLivre = new TypeLivre();
+        auteurLivre = new Auteur();
     }
 
     public Livre(int idLivre, String titreLivre) {
         this.idLivre = idLivre;
         this.titreLivre = titreLivre;
     }
-    
-    public Livre() {
-    }
+
+ 
     
 /*-----------------------------------------------------------------------------*/ 
     //Getter
@@ -70,13 +76,14 @@ public class Livre {
     public String getResumeLivre() {
         return resumeLivre;
     }
-
-    public TypeLivre getTypelivre() {
-        return typelivre;
-    }
+    
 
     public Auteur getAuteurLivre() {
         return auteurLivre;
+    }
+
+    public TypeLivre getTypeLivre() {
+        return typeLivre;
     }
     
 /*-----------------------------------------------------------------------------*/ 
@@ -99,8 +106,9 @@ public class Livre {
         this.resumeLivre = resumeLivre;
     }
 
-    public void setTypelivre(TypeLivre typelivre) {
-        this.typelivre = typelivre;
+
+    public void setTypeLivre(TypeLivre typeLivre) {
+        this.typeLivre = typeLivre;
     }
 
     public void setAuteurLivre(Auteur auteurLivre) {
@@ -108,13 +116,15 @@ public class Livre {
     }
     
 /*-----------------------------------------------------------------------------*/ 
-    //Constructeur
+    //toString
 /*-----------------------------------------------------------------------------*/
 
     @Override
     public String toString() {
-        return "Livre{" + "idLivre=" + idLivre + ", titreLivre=" + titreLivre + ", anneeLivre=" + anneeLivre + ", resumeLivre=" + resumeLivre + ", typelivre=" + typelivre + ", auteurLivre=" + auteurLivre + '}';
+        return "Livre{" + "idLivre=" + idLivre + ", titreLivre=" + titreLivre + ", anneeLivre=" + anneeLivre + ", resumeLivre=" + resumeLivre + ", typeLivre=" + typeLivre + ", auteurLivre=" + auteurLivre + '}';
     }
+
+
 
 
     

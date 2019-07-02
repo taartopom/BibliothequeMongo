@@ -54,6 +54,12 @@ public class Inscrit {
         this.cpInscrit = cpInscrit;
     }
 
+    public Inscrit(int idInscrit, String nomInscrit, String prenomInscrit) {
+        this.idInscrit = idInscrit;
+        this.nomInscrit = nomInscrit;
+        this.prenomInscrit = prenomInscrit;
+    }
+
     public Inscrit() {
     }
 /*-----------------------------------------------------------------------------*/ 

@@ -11,8 +11,14 @@ import model.AuteurDAO;
 import model.Connexion;
 import model.Edition;
 import model.EditionDAO;
+import model.Emprunt;
+import model.EmpruntDAO;
+import model.Exemplaire;
+import model.ExemplaireDAO;
 import model.Inscrit;
 import model.InscritDAO;
+import model.Livre;
+import model.LivreDAO;
 import model.Pays;
 import model.PaysDAO;
 import model.TypeLivre;
@@ -60,6 +66,12 @@ public class Bibliotheque {
     // getOne 
         //EditionDAO edDAO = new EditionDAO();
         //System.out.println(edDAO.getOneEditeur(3));
+    
+    /*----------------------------------------------------------------------*/ 
+    //pour selectionner la liste des editions
+        //EditionDAO edDAO = new EditionDAO();
+        //List<Edition> listEdition = edDAO.getAllEditeur();
+        //System.out.println(listEdition);
   
     /*----------------------------------------------------------------------*/
         //Pays
@@ -93,6 +105,12 @@ public class Bibliotheque {
         //PaysDAO paysDAO = new PaysDAO();
         //System.out.println(paysDAO.getOnePays(2));
     
+    /*----------------------------------------------------------------------*/ 
+    //pour selectionner la liste des pays
+        //PaysDAO paDAO = new PaysDAO();
+        //List<Pays> listPays = paDAO.getAllPays();
+        //System.out.println(listPays);
+    
     /*----------------------------------------------------------------------*/
         //TypeLivre
     /*----------------------------------------------------------------------*/ 
@@ -125,6 +143,12 @@ public class Bibliotheque {
     //GetOne
         //TypeLivreDAO tpDAO = new TypeLivreDAO();
         //System.out.println(tpDAO.getOneTypeLivre(4));
+   
+    /*----------------------------------------------------------------------*/ 
+    //pour selectionner la liste des typeLivre    
+        //TypeLivreDAO tpLivre = new TypeLivreDAO();
+        //List<TypeLivre> listTpLivre = tpLivre.getAllTypeLivre();
+        //System.out.println(listTpLivre);
         
         
     /*----------------------------------------------------------------------*/
@@ -145,7 +169,8 @@ public class Bibliotheque {
         //Inscrit inscrit = new Inscrit(3,"a","supprimer", "15/05/1973","16 les hautes herbes","Lomme",59800,"bj@email.com","0326859712", "0663745701");
 
         //insDAO.deleteInscrit(inscrit);
-   /*----------------------------------------------------------------------*/ 
+        
+/*----------------------------------------------------------------------*/ 
     //pour modifier un inscrit
         //Inscrit inscrit = new Inscrit(2,"Connor","sarah", "15/05/1973","2 rue des robots","Socx",59380,"sc@email.com","0326859712", "0663745701");
         //InscritDAO insDAO = new InscritDAO();
@@ -156,6 +181,12 @@ public class Bibliotheque {
     //pour selectionner un seul inscrit
         //InscritDAO insDAO = new InscritDAO();
         //System.out.println(insDAO.getOneInscrit(2));
+        
+/*----------------------------------------------------------------------*/ 
+    //pour selectionner la liste des inscrits    
+        //InscritDAO insDAO = new InscritDAO();
+        //List<Inscrit> listInscrit = insDAO.getAllInscrit();
+        //System.out.println(listInscrit);
         
 /*----------------------------------------------------------------------*/
     //Auteur
@@ -171,7 +202,7 @@ public class Bibliotheque {
     
     //auteurDAO.addAuteur(auteur);
     
-    /*----------------------------------------------------------------------*/
+/*----------------------------------------------------------------------*/
     // pour modifier un auteur
         //Auteur auteur = new Auteur(1, "jack", "pot", "30/07/1694", new Pays(2, "Allemangne"));
         //AuteurDAO auDAO = new AuteurDAO();
@@ -186,10 +217,135 @@ public class Bibliotheque {
         //auDAO.deleteAuteur(auteur);
 /*----------------------------------------------------------------------*/
     // pour selectionner un auteur
-        AuteurDAO auDAO = new AuteurDAO();
-        System.out.println(auDAO.getOneAuteur(2)); 
+        //AuteurDAO auDAO = new AuteurDAO();
+        //System.out.println(auDAO.getOneAuteur(5)); 
         
+/*----------------------------------------------------------------------*/
+    // pour selectionner la liste des auteurs
+        //AuteurDAO auDAO = new AuteurDAO();
+        //List<Auteur> listAuteur = auDAO.getAllAuteur();
+        //System.out.println(listAuteur);
     
-    }   
+      
+/*----------------------------------------------------------------------*/
+    //Livre
+/*----------------------------------------------------------------------*/
+    // pour ajouter un livre
+        //LivreDAO liDAO =  new LivreDAO();
+        //Livre livre  =  new Livre(0, "Level 26","2011", "un livre sur un meutrier en série", new TypeLivre(0, "policier"), new Auteur(2,"Abel", "Barbara"));
+        //Livre livre  =  new Livre(2, "Harry potter","2001", "un magicien avec une belle baguette", new TypeLivre(1, "fantastique"), new Auteur(2,"Abel", "Barbara"));
+        //Livre livre  =  new Livre(3, "a modifier", "un magicien avec une belle baguette", new TypeLivre(1, "fantastique"), new Auteur(2,"Abel", "Barbara"));
+        //Livre livre  =  new Livre(4, "a supprimer", "un magicien avec une belle baguette", new TypeLivre(1, "fantastique"), new Auteur(2,"Abel", "Barbara"));
+
+    //liDAO.addLivre(livre);
+
+/*----------------------------------------------------------------------*/
+    // pour modifier un livre
+        //Livre livre  =  new Livre(3, " pokemon","1998", "attrapé les tous", new TypeLivre(1, "fantastique"), new Auteur(2,"Abel", "Barbara"));
+        //LivreDAO liDAO = new LivreDAO();
+        
+        //liDAO.updateLivre(livre);
     
+/*----------------------------------------------------------------------*/ 
+    //pour supprimer un livre
+        //Livre livre  =  new Livre(4, "a supprimer", "un magicien avec une belle baguette", new TypeLivre(1, "fantastique"), new Auteur(2,"Abel", "Barbara"));
+        //LivreDAO liDAO =  new LivreDAO();
+        
+        //liDAO.deleteLivre(livre);
+    
+/*----------------------------------------------------------------------*/
+    // pour selectionner un livre
+        //LivreDAO liDAO = new LivreDAO();
+        //System.out.println(liDAO.getOnelivre(2)); 
+        
+/*----------------------------------------------------------------------*/  
+// pour selectionner la liste des auteurs 
+        //LivreDAO liDAO = new LivreDAO();
+        //List<Livre> listLivre = liDAO.getAllLivre();
+        //System.out.println(listLivre);
+        
+        
+/*----------------------------------------------------------------------*/
+    //Exemplaire
+/*----------------------------------------------------------------------*/
+    //Pour l'ajout d'un exemplaire
+        //ExemplaireDAO exDAO =  new ExemplaireDAO();
+        
+        /***** premier exemplaire ajoute******/
+        //Edition idEditionExemplaire = new Edition(2, "Marvel");
+        //Livre idLivreExemplaire = new Livre (3, " pokemon","1998", "attrapé les tous", new TypeLivre(1, "fantastique"), new Auteur(2,"Abel", "Barbara"));
+        //Exemplaire exemplaire =  new Exemplaire(0, idEditionExemplaire, idLivreExemplaire);
+        
+         /***** deuxieme exemplaire ajoute******/
+        //Edition idEditionExemplaire = new Edition(10, "DC");
+        //Livre idLivreExemplaire = new Livre (9, " Batman","1998", "Contre le joker", new TypeLivre(1, "fantastique"), new Auteur(7,"Ali", "Baba"));
+        //Exemplaire exemplaire =  new Exemplaire(1, idEditionExemplaire, idLivreExemplaire);
+        
+         /***** troisieme exemplaire ajoute******/
+        //Edition idEditionExemplaire = new Edition(10, "DC");
+        //Livre idLivreExemplaire = new Livre (5, "  a modifier","1998", "Contre le joker", new TypeLivre(1, "fantastique"), new Auteur(7,"Ali", "Baba"));
+        //Exemplaire exemplaire =  new Exemplaire(3, idEditionExemplaire, idLivreExemplaire);
+        
+        /***** 4eme exemplaire ajoute******/
+        //Edition idEditionExemplaire = new Edition(10, "DC");
+        //Livre idLivreExemplaire = new Livre (5, "  a supprimer","1998", "Contre le joker", new TypeLivre(1, "fantastique"), new Auteur(7,"Ali", "Baba"));
+        //Exemplaire exemplaire =  new Exemplaire(15, idEditionExemplaire, idLivreExemplaire);
+        //exDAO.addExemplaire(exemplaire);
+
+/*----------------------------------------------------------------------*/
+    //Pour modifier un exemplaire
+        //ExemplaireDAO exDAO =  new ExemplaireDAO();
+        
+        //Edition idEditionExemplaire = new Edition(6, "PetitMousse");
+        //Livre idLivreExemplaire = new Livre (7, "Ane trotro","1998", "trop trop rigolo", new TypeLivre(1, "fantastique"), new Auteur(7,"Ali", "Baba"));
+        //Exemplaire exemplaire =  new Exemplaire("numExemplaire2", idEditionExemplaire, idLivreExemplaire);
+        
+        //exDAO.updateExemplaire(exemplaire);
+        
+/*----------------------------------------------------------------------*/
+    //Pour suprimer un exemplaire
+        //ExemplaireDAO exDAO =  new ExemplaireDAO();
+        //Edition idEditionExemplaire = new Edition(10, "DC");
+        //Livre idLivreExemplaire = new Livre (5, "  a supprimer","1998", "Contre le joker", new TypeLivre(1, "fantastique"), new Auteur(7,"Ali", "Baba"));
+        //Exemplaire exemplaire =  new Exemplaire("numExemplaire3", idEditionExemplaire, idLivreExemplaire);
+        //exDAO.deleteExemplaire(exemplaire);
+        
+/*----------------------------------------------------------------------*/
+    //Pour selection un exemplaire
+        //ExemplaireDAO exDAO =  new ExemplaireDAO();
+        //System.out.println(exDAO.getOneExemplaire(0));
+        
+/*----------------------------------------------------------------------*/
+    //Pour selection un exemplaire
+        ExemplaireDAO exDAO =  new ExemplaireDAO();
+        List<Exemplaire> listExemplaire = exDAO.getAllExemplaire();
+        System.out.println(listExemplaire);
+/*----------------------------------------------------------------------*/
+    //Emprunt
+/*----------------------------------------------------------------------*/
+    // pour ajouter un emprunt
+        //EmpruntDAO emDAO =  new EmpruntDAO();
+        //Emprunt emprunt  = new Emprunt(0, "02/07/2019", 15);
+        //Emprunt emprunt  = new Emprunt(1, "a modifier", 6);
+        //Emprunt emprunt  = new Emprunt(2, "a supprimer", 0);
+        //emDAO.addEmprunt(emprunt);
+        
+/*----------------------------------------------------------------------*/
+    // pour modifier un emprunt
+        //EmpruntDAO emDAO =  new EmpruntDAO();
+        //Emprunt emprunt  = new Emprunt(2, "a supprimer", 0);
+        
+        //emDAO.deleteEmprunt(emprunt);
+
+/*----------------------------------------------------------------------*/
+/************************A REVOIR************************/ 
+    //ajouter un livre a l'emprunt
+        //EmpruntDAO emDAO =  new EmpruntDAO();
+        //Livre livre  =  new Livre(0, "Level 26","2011", "un livre sur un meutrier en série", new TypeLivre(0, "policier"), new Auteur(2,"Abel", "Barbara"));
+        //Emprunt empruntAvecLivre = new Emprunt(2, "16/10/2005", 6);
+        
+        //emDAO.addLivreEmprunt(empruntAvecLivre, livre);
+        
+        
+    }
 }

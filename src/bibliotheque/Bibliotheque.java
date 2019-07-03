@@ -5,6 +5,8 @@
  */
 package bibliotheque;
 
+import com.mongodb.BasicDBObject;
+import java.util.ArrayList;
 import java.util.List;
 import model.Auteur;
 import model.AuteurDAO;
@@ -327,7 +329,7 @@ public class Bibliotheque {
         //EmpruntDAO emDAO =  new EmpruntDAO();
         //Emprunt emprunt  = new Emprunt(0, "02/07/2019", 15);
         //Emprunt emprunt  = new Emprunt(1, "a modifier", 6);
-        //Emprunt emprunt  = new Emprunt(3, "03/06/2019", 0);
+        //Emprunt emprunt  = new Emprunt(2, "03/06/2019", 0);
         //emDAO.addEmprunt(emprunt);
         
 /*----------------------------------------------------------------------*/
@@ -341,16 +343,20 @@ public class Bibliotheque {
 /************************A REVOIR************************/ 
     //ajouter un livre a l'emprunt
         EmpruntDAO emDAO =  new EmpruntDAO();
+        Emprunt emprunt = new Emprunt(4, "03/07/19", 8);
+       
+        List<BasicDBObject> listeExp = new ArrayList<>();
+       
+        BasicDBObject exemplaire = new BasicDBObject("_id",15)
+               .append("idEdition",new BasicDBObject("_id",10))
+                    .append("idLivre", new BasicDBObject("_id", 2));
+               
+             listeExp.add(exemplaire);
         
-        Edition idEditionExemplaire = new Edition(10, "DC");
-        Livre idLivreExemplaire = new Livre (5, "  a supprimer","1998", "Contre le joker", new TypeLivre(1, "fantastique"), new Auteur(7,"Ali", "Baba"));
-        Exemplaire refExemplaireEmprunt =  new Exemplaire(15, idEditionExemplaire, idLivreExemplaire);
-        Inscrit idInscritEmprunt = new Inscrit(0,"dupont","pierre", "13/06/1965","10 rue des arbres","Lille",59000,"pd@email.com","0328629342", "0628629342");
-        Livre livre  =  new Livre(0, "Level 26","2011", "un livre sur un meutrier en série", new TypeLivre(0, "policier"), new Auteur(2,"Abel", "Barbara"));
-        Emprunt empruntAvecLivre = new Emprunt(2, "02/07/2019", 16, idInscritEmprunt, refExemplaireEmprunt);
-        
-        emDAO.addLivreEmprunt(empruntAvecLivre, livre);
+        emDAO.addLivreEmprunt(emprunt,new Livre(9, "Batman"));
+       
+        }
         
         
     }
-}
+

@@ -5,6 +5,10 @@
  */
 package model;
 
+import com.mongodb.BasicDBObject;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Administrateur
@@ -14,27 +18,32 @@ public class Emprunt {
     private String dateEmprunt;
     private int delaisEmprunt;
     private Inscrit idInscritEmprunt;
-    private Exemplaire refExemplaireEmprunt;
+    private List<BasicDBObject> listeRefExemplaireEmprunt;
     
 /*-----------------------------------------------------------------------------*/ 
     //Constructeur
 /*-----------------------------------------------------------------------------*/
 
-    public Emprunt(int idEmprunt, String dateEmprunt, int delaisEmprunt, Inscrit idInscritEmprunt, Exemplaire refExemplaireEmprunt) {
+    public Emprunt(int idEmprunt, String dateEmprunt, int delaisEmprunt, Inscrit idInscritEmprunt, List<BasicDBObject> refExemplaireEmprunt) {
         this.idEmprunt = idEmprunt;
         this.dateEmprunt = dateEmprunt;
         this.delaisEmprunt = delaisEmprunt;
         this.idInscritEmprunt = idInscritEmprunt;
-        this.refExemplaireEmprunt = refExemplaireEmprunt;
+        listeRefExemplaireEmprunt = new ArrayList<>();
     }
 
+
+
     public Emprunt() {
+        listeRefExemplaireEmprunt = new ArrayList<>();
+        
     }
 
     public Emprunt(int idEmprunt, String dateEmprunt, int delaisEmprunt) {
         this.idEmprunt = idEmprunt;
         this.dateEmprunt = dateEmprunt;
         this.delaisEmprunt = delaisEmprunt;
+        listeRefExemplaireEmprunt = new ArrayList<>();
     }
     
     
@@ -58,9 +67,11 @@ public class Emprunt {
         return idInscritEmprunt;
     }
 
-    public Exemplaire getRefExemplaireEmprunt() {
-        return refExemplaireEmprunt;
+    public List<BasicDBObject> getListeRefExemplaireEmprunt() {
+        return listeRefExemplaireEmprunt;
     }
+
+
 /*-----------------------------------------------------------------------------*/ 
     //Setter
 /*-----------------------------------------------------------------------------*/
@@ -80,16 +91,21 @@ public class Emprunt {
         this.idInscritEmprunt = idInscritEmprunt;
     }
 
-    public void setRefExemplaireEmprunt(Exemplaire refExemplaireEmprunt) {
-        this.refExemplaireEmprunt = refExemplaireEmprunt;
+    public void setListeRefExemplaireEmprunt(List<BasicDBObject> listeRefExemplaireEmprunt) {
+        this.listeRefExemplaireEmprunt = listeRefExemplaireEmprunt;
     }
+
+ 
+    
 /*-----------------------------------------------------------------------------*/ 
     //toString
 /*-----------------------------------------------------------------------------*/
 
     @Override
     public String toString() {
-        return "Emprunt{" + "idEmprunt=" + idEmprunt + ", dateEmprunt=" + dateEmprunt + ", delaisEmprunt=" + delaisEmprunt + ", idInscritEmprunt=" + idInscritEmprunt + ", refExemplaireEmprunt=" + refExemplaireEmprunt + '}';
+        return "Emprunt{" + "idEmprunt=" + idEmprunt + ", dateEmprunt=" + dateEmprunt + ", delaisEmprunt=" + delaisEmprunt + ", idInscritEmprunt=" + idInscritEmprunt + ", listeRefExemplaireEmprunt=" + listeRefExemplaireEmprunt + '}';
     }
+
+
 
 }

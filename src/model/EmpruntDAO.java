@@ -47,8 +47,8 @@ public class EmpruntDAO implements EmpruntInterface {
 		BasicDBObject docEmprunt = new BasicDBObject("_id",emprunt.getIdEmprunt())
 				.append("dateEmprunt", emprunt.getDateEmprunt())
 				.append("delaiEmprunt", emprunt.getDelaisEmprunt())
-				.append("idInscritEmprunt", new BasicDBObject("_id", emprunt.getIdInscritEmprunt())
-				.append("refExemplaireEmprunt", new BasicDBObject("_id", emprunt.getRefExemplaireEmprunt())));
+				.append("idInscritEmprunt", new BasicDBObject("_id", emprunt.getIdInscritEmprunt()))
+				.append("contenir",emprunt.getListeRefExemplaireEmprunt());
 		this.collectionEmprunt.insert(docEmprunt);
 		
 	}
@@ -57,19 +57,11 @@ public class EmpruntDAO implements EmpruntInterface {
 	//pour la suppression d'un emprunt de livre
 @Override
 	public void deleteEmprunt(Emprunt emprunt) {
-		BasicDBObject docEmprunt = new BasicDBObject("_id",emprunt.getIdEmprunt());
-		DBObject obj = this.collectionEmprunt.findOne(docEmprunt);
-		
-		BasicDBList listeLivre = (BasicDBList)obj.get("contenir");
-		//verification de l'emprunt , s'il contient des livres pour la suppression
-		//if(listeLivre.isEmpty()) {
-			this.collectionEmprunt.remove(obj);
-			//JOptionPane.showMessageDialog(null, "Suppression effectu�e avec succes");
-		//}else {
-			//JOptionPane.showMessageDialog(null,"Suppression impossible car l'emprunt n°: " + emprunt.getIdEmprunt() + " contient des �l�ments");
-		//}
-		
-		
+            BasicDBObject docEmprunt = new BasicDBObject("_id",emprunt.getIdEmprunt());
+            DBObject obj = this.collectionEmprunt.findOne(docEmprunt);
+
+            this.collectionEmprunt.remove(obj);
+	
 	}
 
 /*-----------------------------------------------------------------------------------*/  
@@ -146,6 +138,7 @@ public class EmpruntDAO implements EmpruntInterface {
             this.collectionEmprunt.update(docEmpruntOld, docEmpruntNew);
                     
             
+           //création de l'ancienne commande avec juste l'id
 	}
 
 /*-----------------------------------------------------------------------------------*/

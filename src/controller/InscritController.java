@@ -148,6 +148,32 @@ public class InscritController implements ActionListener, MouseListener{
             
         }
         
+        //pour le bouton suprimer un inscrit
+        if(ae.getSource().equals(this.inscritVUE.getBtnDeleteInscrit())){
+           Inscrit inscrit =  new Inscrit();
+           inscrit.setIdInscrit(Integer.parseInt(this.inscritVUE.getTxtIdInscrit().getText()));
+           
+           this.inscritDAO.deleteInscrit(inscrit);
+           initModelInscrit();
+        }
+        
+        //pour le bouton modifier un inscrit
+        if(ae.getSource().equals(this.inscritVUE.getBtnUpdateInscrit())){
+            Inscrit inscrit =  new Inscrit();
+            inscrit.setIdInscrit(Integer.parseInt(this.inscritVUE.getTxtIdInscrit().getText()));
+            inscrit.setNomInscrit(this.inscritVUE.getTxtNomInscrit().getText());
+            inscrit.setPrenomInscrit(this.inscritVUE.getTxtPrenomInscrit().getText());
+            inscrit.setDateNaissanceInscrit(this.inscritVUE.getTxtDateNaissanceInscrit().getText());
+            inscrit.setRueInscrit(this.inscritVUE.getTxtRueInscrit().getText());
+            inscrit.setVilleInscrit(this.inscritVUE.getTxtVilleInscrit().getText());
+            inscrit.setCpInscrit(Integer.parseInt(this.inscritVUE.getTxtCPInscrit().getText()));
+            inscrit.setEmailInscrit(this.inscritVUE.getTxtEmailInscrit().getText());
+            inscrit.setNumTelInscrit(this.inscritVUE.getTxtTelInscrit().getText());
+            inscrit.setNumGSMIscrit(this.inscritVUE.getTxtGSMIscrit().getText());
+            
+            this.inscritDAO.updateInscrit(inscrit);
+            initModelInscrit();
+        }
     }
 
 /*-----------------------------------------------------------------------------------*/

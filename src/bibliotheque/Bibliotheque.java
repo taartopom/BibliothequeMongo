@@ -360,7 +360,7 @@ public class Bibliotheque {
     //Controller LIVRE
 /*----------------------------------------------------------------------*/
         InscritVue insVUE = new InscritVue();
-        insVUE.setVisible(true);
+        //insVUE.setVisible(true);
         InscritController  controlInscrit =  new InscritController();
         
         }

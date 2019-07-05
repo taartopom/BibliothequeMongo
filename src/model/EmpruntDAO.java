@@ -72,17 +72,15 @@ public class EmpruntDAO implements EmpruntInterface {
 		
 		DBCursor cursor = this.collectionEmprunt.find();
 		
-	/*	while(cursor.hasNext()) {
+		while(cursor.hasNext()) {
 			DBObject objEmprunt = cursor.next();
 			
 			Emprunt emprunt = new Emprunt();
 			emprunt.setIdEmprunt((int)objEmprunt.get("-id"));
 			emprunt.setDateEmprunt(objEmprunt.get("dateEmprunt").toString());
 			emprunt.setDelaisEmprunt((int)objEmprunt.get("delaisEmprunt"));
-			;
 		}
-		*/
-		return null;
+		return listeEmprunt;
 	}
 
 /*-----------------------------------------------------------------------------------*/
@@ -106,13 +104,20 @@ public class EmpruntDAO implements EmpruntInterface {
         
 	@Override
 	public void addLivreEmprunt(Emprunt emprunt, Livre livre) {
-            //création de l'ancienne commande avec juste l'id
+          /*  //création de l'ancienne commande avec juste l'id
             BasicDBObject docEmpruntOld = new BasicDBObject("_id", emprunt.getIdEmprunt());
             //recherche de la commande
             DBObject objEmprunt = this.collectionEmprunt.findOne(docEmpruntOld);
             //récupération de la liste des produits de la commande
             BasicDBList listLivre = (BasicDBList) objEmprunt.get("contenir");
-            
+                        
+            //ajout du nouveau Livre à la liste des livre a emprunter
+            BasicDBObject newLivreEmprunt =  new BasicDBObject("_id", livre.getIdLivre())
+                .append("titreLivre",livre.getTitreLivre())
+                .append("anneeLivre",livre.getAnneeLivre())
+                .append("resumeLivre", livre.getResumeLivre());
+
+            /*
             //ajout du nouveau Livre à la liste des livre a emprunter
             BasicDBObject newLivreEmprunt =  new BasicDBObject("_id", livre.getIdLivre())
                 .append("titreLivre",livre.getTitreLivre())
@@ -135,10 +140,10 @@ public class EmpruntDAO implements EmpruntInterface {
                     .append("dateEmprunt",emprunt.getDateEmprunt())
                     .append("delaisEmprunt",emprunt.getDelaisEmprunt());
             
-            this.collectionEmprunt.update(docEmpruntOld, docEmpruntNew);
+            this.collectionEmprunt.update(docEmpruntOld, docEmpruntNew);*/
                     
             
-           //création de l'ancienne commande avec juste l'id
+
 	}
 
 /*-----------------------------------------------------------------------------------*/

@@ -5,9 +5,9 @@
         <group>
             <file>file:/C:/Users/Administrateur/Documents/NetBeansProjects/Bibliotheque/BibliothequeMongo/src/view/InscritVue.java</file>
             <file>file:/C:/Users/Administrateur/Documents/NetBeansProjects/Bibliotheque/BibliothequeMongo/src/model/EmpruntDAO.java</file>
-            <file>file:/C:/Users/Administrateur/Documents/NetBeansProjects/Bibliotheque/BibliothequeMongo/src/view/EmpruntVue.java</file>
+            <file>file:/C:/Users/Administrateur/Documents/NetBeansProjects/Bibliotheque/BibliothequeMongo/src/model/Emprunt.java</file>
+            <file>file:/C:/Users/Administrateur/Documents/NetBeansProjects/Bibliotheque/BibliothequeMongo/src/model/Inscrit.java</file>
             <file>file:/C:/Users/Administrateur/Documents/NetBeansProjects/Bibliotheque/BibliothequeMongo/src/bibliotheque/Bibliotheque.java</file>
-            <file>file:/C:/Users/Administrateur/Documents/NetBeansProjects/Bibliotheque/BibliothequeMongo/src/model/PaysDAO.java</file>
         </group>
     </open-files>
 </project-private>

@@ -6,6 +6,7 @@
 package bibliotheque;
 
 import com.mongodb.BasicDBObject;
+import controller.InscritController;
 import java.util.ArrayList;
 import java.util.List;
 import model.Auteur;
@@ -25,6 +26,7 @@ import model.Pays;
 import model.PaysDAO;
 import model.TypeLivre;
 import model.TypeLivreDAO;
+import view.InscritVue;
 
 /**
  *
@@ -341,7 +343,7 @@ public class Bibliotheque {
 
 /*----------------------------------------------------------------------*/
 /************************A REVOIR************************/ 
-    //ajouter un livre a l'emprunt
+   /* //ajouter un livre a l'emprunt
         EmpruntDAO emDAO =  new EmpruntDAO();
         Emprunt emprunt = new Emprunt(4, "03/07/19", 8);
        
@@ -353,8 +355,14 @@ public class Bibliotheque {
                
              listeExp.add(exemplaire);
         
-        emDAO.addLivreEmprunt(emprunt,new Livre(9, "Batman"));
-       
+        emDAO.addLivreEmprunt(emprunt,new Livre(9, "Batman"));*/
+/*----------------------------------------------------------------------*/
+    //Controller LIVRE
+/*----------------------------------------------------------------------*/
+        InscritVue insVUE = new InscritVue();
+        insVUE.setVisible(true);
+        InscritController  controlInscrit =  new InscritController();
+        
         }
         
         

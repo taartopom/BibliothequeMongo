@@ -5,6 +5,12 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Administrateur
@@ -33,7 +39,7 @@ public class InscritVue extends javax.swing.JFrame {
         btnDeleteInscrit = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableauInscrits = new javax.swing.JTable();
         txtRechInscrit = new javax.swing.JTextField();
         btnRechInscrit = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -43,10 +49,10 @@ public class InscritVue extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtNomInscrit = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        tktPrenomInscrit = new javax.swing.JTextField();
+        txtPrenomInscrit = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        tktRueInscrit = new javax.swing.JTextField();
+        txtRueInscrit = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtCPInscrit = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -58,6 +64,8 @@ public class InscritVue extends javax.swing.JFrame {
         txtGSMIscrit = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txtEmailInscrit = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtDateNaissanceInscrit = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,7 +108,7 @@ public class InscritVue extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Les inscrits"));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableauInscrits.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -111,7 +119,7 @@ public class InscritVue extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableauInscrits);
 
         btnRechInscrit.setText("Rechercher");
 
@@ -181,7 +189,7 @@ public class InscritVue extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(tktRueInscrit, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtRueInscrit, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(jLabel4)
@@ -196,7 +204,7 @@ public class InscritVue extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tktRueInscrit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRueInscrit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -255,6 +263,8 @@ public class InscritVue extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel9.setText("Date de naissance:");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -270,8 +280,12 @@ public class InscritVue extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tktPrenomInscrit, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                            .addComponent(txtPrenomInscrit, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
                             .addComponent(txtNomInscrit))))
+                .addGap(153, 153, 153)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtDateNaissanceInscrit, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -288,9 +302,13 @@ public class InscritVue extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IdInscrit)
-                    .addComponent(txtIdInscrit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(IdInscrit)
+                        .addComponent(txtIdInscrit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel9)
+                        .addComponent(txtDateNaissanceInscrit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -298,7 +316,7 @@ public class InscritVue extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(tktPrenomInscrit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPrenomInscrit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -392,6 +410,7 @@ public class InscritVue extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -399,16 +418,177 @@ public class InscritVue extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField tktPrenomInscrit;
-    private javax.swing.JTextField tktRueInscrit;
+    private javax.swing.JTable tableauInscrits;
     private javax.swing.JTextField txtCPInscrit;
+    private javax.swing.JTextField txtDateNaissanceInscrit;
     private javax.swing.JTextField txtEmailInscrit;
     private javax.swing.JTextField txtGSMIscrit;
     private javax.swing.JTextField txtIdInscrit;
     private javax.swing.JTextField txtNomInscrit;
+    private javax.swing.JTextField txtPrenomInscrit;
     private javax.swing.JTextField txtRechInscrit;
+    private javax.swing.JTextField txtRueInscrit;
     private javax.swing.JTextField txtTelInscrit;
     private javax.swing.JTextField txtVilleInscrit;
     // End of variables declaration//GEN-END:variables
+/*-----------------------------------------------------------------------------------*/
+    // getter
+/*-----------------------------------------------------------------------------------*/ 
+    public JLabel getIdInscrit() {
+        return IdInscrit;
+    }
+
+    public JButton getBtnAddInscrit() {
+        return btnAddInscrit;
+    }
+
+    public JButton getBtnDeleteInscrit() {
+        return btnDeleteInscrit;
+    }
+
+    public JButton getBtnRechInscrit() {
+        return btnRechInscrit;
+    }
+
+    public JButton getBtnUpdateInscrit() {
+        return btnUpdateInscrit;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public JTable getTableauInscrits() {
+        return tableauInscrits;
+    }
+
+    public JTextField getTxtPrenomInscrit() {
+        return txtPrenomInscrit;
+    }
+
+    public JTextField getTxtCPInscrit() {
+        return txtCPInscrit;
+    }
+
+    public JTextField getTxtEmailInscrit() {
+        return txtEmailInscrit;
+    }
+
+    public JTextField getTxtGSMIscrit() {
+        return txtGSMIscrit;
+    }
+
+    public JTextField getTxtIdInscrit() {
+        return txtIdInscrit;
+    }
+
+    public JTextField getTxtNomInscrit() {
+        return txtNomInscrit;
+    }
+
+    public JTextField getTxtRechInscrit() {
+        return txtRechInscrit;
+    }
+
+    public JTextField getTxtTelInscrit() {
+        return txtTelInscrit;
+    }
+
+    public JTextField getTxtVilleInscrit() {
+        return txtVilleInscrit;
+    }
+
+    public JTextField getTxtDateNaissanceInscrit() {
+        return txtDateNaissanceInscrit;
+    }
+
+    public JTextField getTxtRueInscrit() {
+        return txtRueInscrit;
+    }
+    
+/*-----------------------------------------------------------------------------------*/
+    // getter
+/*-----------------------------------------------------------------------------------*/ 
+
+    public void setIdInscrit(JLabel IdInscrit) {
+        this.IdInscrit = IdInscrit;
+    }
+
+    public void setBtnAddInscrit(JButton btnAddInscrit) {
+        this.btnAddInscrit = btnAddInscrit;
+    }
+
+    public void setBtnDeleteInscrit(JButton btnDeleteInscrit) {
+        this.btnDeleteInscrit = btnDeleteInscrit;
+    }
+
+    public void setBtnRechInscrit(JButton btnRechInscrit) {
+        this.btnRechInscrit = btnRechInscrit;
+    }
+
+    public void setBtnUpdateInscrit(JButton btnUpdateInscrit) {
+        this.btnUpdateInscrit = btnUpdateInscrit;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public void setTableauInscrits(JTable tableauInscrits) {
+        this.tableauInscrits = tableauInscrits;
+    }
+
+    public void setTxtPrenomInscrit(JTextField txtPrenomInscrit) {
+        this.txtPrenomInscrit = txtPrenomInscrit;
+    }
+
+    public void setTxtRueInscrit(JTextField txtRueInscrit) {
+        this.txtRueInscrit = txtRueInscrit;
+    }
+
+    public void setTxtCPInscrit(JTextField txtCPInscrit) {
+        this.txtCPInscrit = txtCPInscrit;
+    }
+
+    public void setTxtEmailInscrit(JTextField txtEmailInscrit) {
+        this.txtEmailInscrit = txtEmailInscrit;
+    }
+
+    public void setTxtGSMIscrit(JTextField txtGSMIscrit) {
+        this.txtGSMIscrit = txtGSMIscrit;
+    }
+
+    public void setTxtIdInscrit(JTextField txtIdInscrit) {
+        this.txtIdInscrit = txtIdInscrit;
+    }
+
+    public void setTxtNomInscrit(JTextField txtNomInscrit) {
+        this.txtNomInscrit = txtNomInscrit;
+    }
+
+    public void setTxtRechInscrit(JTextField txtRechInscrit) {
+        this.txtRechInscrit = txtRechInscrit;
+    }
+
+    public void setTxtTelInscrit(JTextField txtTelInscrit) {
+        this.txtTelInscrit = txtTelInscrit;
+    }
+
+    public void setTxtVilleInscrit(JTextField txtVilleInscrit) {
+        this.txtVilleInscrit = txtVilleInscrit;
+    }
+
+    public void setTxtDateNaissanceInscrit(JTextField txtDateNaissanceInscrit) {
+        this.txtDateNaissanceInscrit = txtDateNaissanceInscrit;
+    }
+    
+/*-----------------------------------------------------------------------------------*/
+    // to string
+/*-----------------------------------------------------------------------------------*/ 
+
+    @Override
+    public String toString() {
+        return "InscritVue{" + "IdInscrit=" + IdInscrit + ", btnAddInscrit=" + btnAddInscrit + ", btnDeleteInscrit=" + btnDeleteInscrit + ", btnRechInscrit=" + btnRechInscrit + ", btnUpdateInscrit=" + btnUpdateInscrit + ", jScrollPane1=" + jScrollPane1 + ", jTable1=" + tableauInscrits + ", tktPrenomInscrit=" + txtPrenomInscrit + ", tktRueInscrit=" + txtRueInscrit + ", txtCPInscrit=" + txtCPInscrit + ", txtEmailInscrit=" + txtEmailInscrit + ", txtGSMIscrit=" + txtGSMIscrit + ", txtIdInscrit=" + txtIdInscrit + ", txtNomInscrit=" + txtNomInscrit + ", txtRechInscrit=" + txtRechInscrit + ", txtTelInscrit=" + txtTelInscrit + ", txtVilleInscrit=" + txtVilleInscrit + '}';
+    }
+
 }

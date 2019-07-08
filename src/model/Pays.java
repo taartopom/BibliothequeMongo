@@ -6,10 +6,14 @@
 package model;
 
 /**
- *
- * @author Administrateur
+ * Cette class permet de creer des objets de type Pays
+ * @author sandra
+ * @version 1.0
  */
 public class Pays {
+/*-----------------------------------------------------------------------------*/ 
+    //les attributs
+/*-----------------------------------------------------------------------------*/
     private int idPays;
     private String nomPays;
   

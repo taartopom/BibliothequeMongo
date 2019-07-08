@@ -9,10 +9,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.ComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import model.AuteurDAO;
+import model.Edition;
 import model.EditionDAO;
+import model.Exemplaire;
 import model.ExemplaireDAO;
+import model.Livre;
 import model.LivreDAO;
 import view.ExemplaireVue;
 
@@ -28,6 +32,7 @@ public class ExemplaireController implements ActionListener, MouseListener{
     private ExemplaireVue exemplaireVUE;
     private EditionDAO editionDAO;
     private DefaultTableModel modelLivre, modelAuteur;
+    private ComboBoxModel<Edition> modelEdition;
     
 /*-----------------------------------------------------------------------------*/ 
     //Constructeur
@@ -62,11 +67,50 @@ public class ExemplaireController implements ActionListener, MouseListener{
         this.exemplaireVUE.getjBtnAddEdition().addActionListener(this);
     }
     
-    
+    private int findIdEd(String chaine){
+        String [] tabIdEd =  chaine.split("");
+        return Integer.parseInt(tabIdEd[0]);
+    }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+ /*-----------------------------------------------------------------------------------*/       
+        //pour le bouton ajouter un livre
+        if (ae.getSource().equals(this.exemplaireVUE.getBtnAjoutLivre())) {
+            Livre livre = new Livre();
+            livre.setIdLivre(Integer.parseInt(this.exemplaireVUE.getTxtIdLivre().getText()));
+            livre.setTitreLivre(this.exemplaireVUE.getTxtTitreLivre().getText());
+            livre.setAnneeLivre(this.exemplaireVUE.getTxtAnneeLivre().getText());
+            this.livreDAO.addLivre(livre);
+   
+        }
+ /*-----------------------------------------------------------------------------------*/
+        // pour le bouton modifier un livre
+        if(ae.getSource().equals(this.exemplaireVUE.getBtnModifierLivre())){
+            Livre livre  =  new Livre();
+            livre.setIdLivre(Integer.parseInt(this.exemplaireVUE.getTxtIdLivre().getText()));
+            livre.setTitreLivre(this.exemplaireVUE.getTxtTitreLivre().getText());
+            livre.setAnneeLivre(this.exemplaireVUE.getTxtAnneeLivre().getText());
+            
+            this.livreDAO.updateLivre(livre);
+        }
+ /*-----------------------------------------------------------------------------------*/
+        // pour le bouton supprimer un livre
+        if(ae.getSource().equals(this.exemplaireVUE.getBtnSupprimerLivre())){
+            Livre livre =  new Livre();
+            livre.setIdLivre(Integer.parseInt(this.exemplaireVUE.getTxtIdLivre().getText()));
+            
+            this.livreDAO.deleteLivre(livre);
+        }
+ /*-----------------------------------------------------------------------------------*/
+        // pour le bouton ajouter une edition
+        if (ae.getSource().equals(this.exemplaireVUE.getjBtnAddEdition())) {
+            Edition edition = new Edition();
+            edition.setNomLibelle(this.exemplaireVUE.getTxtNomEdition().getText());
+            String chaine =  this.exemplaireVUE.getComboBoxEdition().getSelectedItem().toString();
+            Edition ed =  this.editionDAO.getOneEditeur(findIdEd(chaine));
+            edition.setIdEdition(0);
+        }
     }
 
     @Override
@@ -83,9 +127,10 @@ public class ExemplaireController implements ActionListener, MouseListener{
 /*-----------------------------------------------------------------------------------*/
         // pour la partie edition
         int ligneEdition = this.exemplaireVUE.getComboBoxEdition().getSelectedIndex();
+        this.exemplaireVUE.getTxtNomAuteur().setText(modelEdition.getSelectedItem().toString());
         
         //id de l'edition
-        int idEdition =  Integer.parseInt()
+       /* int idEdition =  Integer.parseInt()*/
 /*-----------------------------------------------------------------------------------*/
         // pour la partie auteur
         int ligneAuteur =  this.exemplaireVUE.getTableauDesAuteurs().getSelectedRow();

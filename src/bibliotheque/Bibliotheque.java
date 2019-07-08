@@ -6,6 +6,7 @@
 package bibliotheque;
 
 import com.mongodb.BasicDBObject;
+import controller.ExemplaireController;
 import controller.InscritController;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,7 @@ import model.Pays;
 import model.PaysDAO;
 import model.TypeLivre;
 import model.TypeLivreDAO;
+import view.ExemplaireVue;
 import view.InscritVue;
 
 /**
@@ -362,7 +364,9 @@ public class Bibliotheque {
         InscritVue insVUE = new InscritVue();
         //insVUE.setVisible(true);
         InscritController  controlInscrit =  new InscritController();
-        
+        ExemplaireController controlExemp =  new ExemplaireController();
+        ExemplaireVue exempVUE =  new ExemplaireVue();
+        exempVUE.setVisible(true);
         }
         
         

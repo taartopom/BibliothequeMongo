@@ -9,10 +9,14 @@ import com.mongodb.BasicDBObject;
 import java.util.List;
 
 /**
- *
- * @author Administrateur
+ * Cette class permet de creer des objets de type Auteur
+ * @author sandra
+ * @version 1.0
  */
 public class Auteur {
+/*-----------------------------------------------------------------------------*/ 
+    //les attributs
+/*-----------------------------------------------------------------------------*/
     private int idAuteur;
     private String nomAuteur;
     private String prenomAuteur;

@@ -6,10 +6,14 @@
 package model;
 
 /**
- *
- * @author Administrateur
+ * Cette class permet de creer des objets de type Livre
+ * @author sandra
+ * @version 1.0
  */
 public class Livre {
+/*-----------------------------------------------------------------------------*/ 
+    //les attributs
+/*-----------------------------------------------------------------------------*/
     private int idLivre;
     private String titreLivre;
     private String anneeLivre;

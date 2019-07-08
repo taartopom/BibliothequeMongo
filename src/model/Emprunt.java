@@ -10,10 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author Administrateur
+ * Cette class permet de creer des objets de type Emprunt
+ * @author sandra
+ * @version 1.0
  */
 public class Emprunt {
+/*-----------------------------------------------------------------------------*/ 
+    //les attributs
+/*-----------------------------------------------------------------------------*/
     private int idEmprunt;
     private String dateEmprunt;
     private int delaisEmprunt;

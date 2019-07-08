@@ -6,10 +6,14 @@
 package model;
 
 /**
- *
- * @author Administrateur
+ * Cette class permet de creer des objets de type Edition
+ * @author sandra
+ * @version 1.0
  */
 public class Edition {
+/*-----------------------------------------------------------------------------*/ 
+    //les attributs
+/*-----------------------------------------------------------------------------*/
     private int idEdition;
     private String nomLibelle;
     

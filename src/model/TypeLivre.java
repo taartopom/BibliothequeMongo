@@ -6,10 +6,14 @@
 package model;
 
 /**
- *
- * @author Administrateur
+ * Cette class permet de creer des objets de type TypeLivre
+ * @author sandra
+ * @version 1.0
  */
 public class TypeLivre {
+/*-----------------------------------------------------------------------------*/ 
+    //les attributs
+/*-----------------------------------------------------------------------------*/
     private int idTypeLivre;
     private String libelle;
     

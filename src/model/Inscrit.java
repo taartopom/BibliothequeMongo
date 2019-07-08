@@ -6,10 +6,14 @@
 package model;
 
 /**
- *
- * @author Administrateur
+ * Cette class permet de creer des objets de type Inscrit
+ * @author sandra
+ * @version 1.0
  */
 public class Inscrit {
+/*-----------------------------------------------------------------------------*/ 
+    //les attributs
+/*-----------------------------------------------------------------------------*/
     private int idInscrit;
     private String nomInscrit;
     private String prenomInscrit;
